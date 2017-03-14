@@ -1,0 +1,83 @@
+/* fonts */
+html{
+}
+body{
+    font-family:'helvetica neue', arial,'hiragino sans gb', stheiti,'microsoft yahei', 'wenquanyi micro hei',sans-serif;
+    font-size: 14px;
+    padding-top: 100px;
+}
+/* fixed top brand*/
+.navbar-inverse .navbar-brand{
+    color:#ddd;
+}
+/* for user */
+#navUserName{
+	display:none;
+    cursor: pointer;
+
+}
+#navBack{
+	display:none;
+    cursor: pointer;
+}
+#orRegister, #orLogin{
+    cursor: pointer;
+}
+
+	
+/* colors */
+.profile-bg-color{
+    background-color:#99CCCC;
+}
+.profile-title-color{
+    color: #fff;
+}
+header{
+    margin:0 3rem 0;
+}
+/* for modal */
+.modal-exm{
+	background:#2e6da4;
+	border-radius:5px;
+	height:30px;
+	display:none;
+}
+.modal-ico{
+	margin:8px 0 0 -25px;
+	color:#2e6da4;
+}
+#loginFail{
+    color:red;
+    display:none;
+}
+#login,#register{
+    margin-left:200px;
+}
+#emailOk,#passwordOk,#nameOk{
+	display:none;
+	margin-top:4px;
+}
+/* for each section */
+
+/* for breadcrumb */
+header ol.breadcrumb{
+    padding-left: 0;
+    font-size: 2em;
+}
+
+header .subtitle{
+
+}
+
+#search{
+    margin:2rem 3rem;
+}
+/* describe of data and so on */
+.present{
+    margin: 3rem auto;
+}
+/* for footer */
+#common-footer{
+    
+
+}

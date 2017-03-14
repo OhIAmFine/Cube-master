@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+	<title>工具下载</title>
+    <link rel="stylesheet" href="../css/normalize.min.css">
+    <link rel="stylesheet" href="../css/refs/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/toolDownload.css">
+</head>
+<body>
+    <div id="fixed-top"></div>
+    <header>
+        <ol class="breadcrumb">
+            <li><a href="#">工具</a></li>
+        </ol>
+        <span class="subtitle">
+            您可以点击下方下载按钮来下载接口
+        </span>
+    </header>
+    <div class="container">
+        <a class="btn btn-primary download" href="../servlet/ToolDownLoadServlet?type=jar" >下载jar包
+        </a><a class="btn btn-primary download" href="../servlet/ToolDownLoadServlet?type=doc">下载doc文档</a>
+    </div>
+
+    <script src="../js/config.js"></script>
+    <script src="../js/refs/jquery/jquery.min.js"></script>
+    <script src="../js/loadTpls.js"></script>
+    <script src="../js/refs/bootstrap/bootstrap.min.js"></script>
+</body>
+</html>

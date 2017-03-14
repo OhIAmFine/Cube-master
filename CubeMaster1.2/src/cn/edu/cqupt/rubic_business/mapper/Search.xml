@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="cn.edu.cqupt.rubic_business.dao.SearchDao">
+
+<select id="selectPageCount" parameterType="map" resultType="int" statementType="STATEMENT">
+	select count(*)from ${table_name} 
+	<where>
+	<if test="conditions!=null">
+	and ${conditions}  
+	</if>
+	</where> 
+	</select>
+	
+<select id="findByKeywords" parameterType="map" resultType="map">
+ select *from ${table_name} 
+        <where>
+	<if test="conditions!=null">
+	and ${conditions}
+	</if>
+	</where> 
+        limit ${request_page_number},${per_page_number}
+</select>
+
+</mapper>

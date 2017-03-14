@@ -1,0 +1,38 @@
+#info{
+    border-collapse:collapse;
+}
+.content{
+	background: rgb(249,249,249);
+    padding-bottom: 15px;
+}
+h1,h2,h3,p{
+	margin: 0;
+	padding: 0;
+}
+.breadcrumb li{
+    font-size: 30px;
+}
+.row{
+	margin-top:12px;
+}
+.pattern{
+    width: 9.8%;
+}
+.pattern-ccontent{
+    width: 90.2%;
+}
+pre{
+	height: 600px;
+}
+#data-panel{
+	display: none;
+}
+/* td{
+    font-size: 1.5rem;
+    border: 2px solid #ff0;
+}
+.graph{
+    width: 100%;
+    height: 400px;
+    margin-bottom: 10rem;
+} */

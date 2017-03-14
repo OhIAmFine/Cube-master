@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>数据模块 - Rubic</title> 
+    <link rel="stylesheet" href="../css/refs/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/normalize.min.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/algo-data.css">
+    <link rel="stylesheet" href="../css/dataPresent.css">
+</head>
+
+<body>
+    <div id="fixed-top"></div>
+    <header class="row">
+        <ol class="breadcrumb" id="breadcrumb">
+            <li><a href="#">数据</a></li>
+        </ol>
+        <div class="col-md-5">
+            <div class="form-inline">
+                <div class="form-group">
+                    <label for="exampleInputName2" class="sr-only">Name</label>
+                    <input type="text" class="form-control" id="exampleInputName2" placeholder="请输入要搜索的内容">
+                </div>
+                <a class="btn btn-default text-primary search" role="button" type="submit">搜索</a>
+            </div>
+        </div>
+        <div class="col-md-3 col-md-offset-4">
+            <a class="btn btn-default text-primary" id="upload-data" role="button" href="upLoadData.html">上传数据</a>
+            <select class="form-control" id="data-select">
+                <option>我的数据</option>
+                <option selected>所有数据</option>
+                <option>推荐数据</option>
+            </select>
+        </div>
+
+
+    </header>
+    <div class="page-body dataset" id="content">
+    
+    </div>
+    <div class="ion"></div>
+    <div class="pick-car" id="car">
+        <div class="list">
+            <div class="select-algorithm">
+                <header><h3>选择的算法</h3></header>
+                <ul>
+                <!--  <li><span>iris.data</span><a href="javascript:" data-id="2">删除</a></li>
+                   <li><span>iris.data</span><a href="javascript:" data-id="2">删除</a></li>
+                   <li><span>iris.data</span><a href="javascript:" data-id="2">删除</a></li>
+                   <li><span>iris.data</span><a href="javascript:" data-id="2">删除</a></li> -->
+                </ul>
+            </div>
+            <div class="select-dataset">
+                <header><h3>选择的数据</h3></header>
+                <ul>
+                   <!-- <li><span>iris.data</span><a href="javascript:" data-id="1">删除</a></li>
+                   <li><span>iris.data</span><a href="javascript:" data-id="1">删除</a></li>
+                   <li><span>iris.data</span><a href="javascript:" data-id="1">删除</a></li>
+                   <li><span>iris.data</span><a href="javascript:" data-id="1">删除</a></li> -->
+                </ul>
+                <!-- <footer>
+                    <div class="pick-picture" id="pic"><span class="glyphicon glyphicon-folder-close"></span></div>
+                    <button class="btn btn-success">组合</button>
+                </footer> -->
+            </div> 
+        </div>
+        <footer>
+            <div class="pick-picture" id="pic"><span class="glyphicon glyphicon-folder-close"></span></div>
+            <div class="algorithm-dataset-select">算法<span></span>项，数据<span></span>项</div>
+            <a class="btn btn-success" role="button" href="runAlgoTopo.html">组合</a>
+        </footer>
+    </div>
+    <footer id="common-footer"></footer>
+    <script src="../js/config.js"></script>
+    <script src="../js/refs/jquery/jquery.min.js"></script>
+    <script src="../js/loadTpls.js"></script>
+    <script src="../js/refs/bootstrap/bootstrap.min.js"></script>
+    <script src="../js/dataPresent.js"></script>
+    <script src="../js/pick.js"></script>
+</body>
+</html>

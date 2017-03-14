@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="cn.edu.cqupt.rubic_business.dao.ResultDao">
+	<insert id="addResult" parameterType="cn.edu.cqupt.rubic_business.Model.po.ResultPo">
+		<selectKey resultType="int" keyProperty="resultdataset_id" order="AFTER">
+	        select LAST_INSERT_ID() 
+	    </selectKey>
+	
+		insert into result_dataset (resultdataset_name,associated_tasks,attribute_count,description,
+						number_examples,submit_datetime,
+						area,download_count,file_path,ispublic,dataset_type,platform)
+						values(#{resultdataset_name},#{associated_tasks},#{attribute_count},
+							   #{description},#{number_examples},
+							   #{submit_datetime},#{area},#{download_count},#{file_path},
+							   #{ispublic},#{dataset_type},#{platform})
+	</insert>
+	
+	<select id="getResultAttributePo" parameterType="int" resultType="cn.edu.cqupt.rubic_business.Model.po.AttributePo">
+		select * from attribute ta join resultdataset_attribute_relationship tr on 
+			(ta.attribute_id = tr.attribute_id) where resultdataset_id = #{resultdataset_id} 
+	</select>
+	
+	<select id="getResultDatasetId" resultType="int">
+		SELECT MAX(resultdataset_id) FROM result_dataset
+	</select>
+	
+	<select id="findAttribute" parameterType="int" resultType="int">
+		select attribute_id from resultdataset_attribute_relationship 
+		where resultdataset_id=#{resultdataset_id}
+	</select>
+	
+	<select id="findResultById" parameterType="int" resultType="cn.edu.cqupt.rubic_business.Model.po.ResultPo">
+		select *from result_dataset where resultdataset_id=#{resultdataset_id}
+	</select>
+	
+	<insert id="addUserResultDatasetRelation" parameterType="Map">
+		INSERT INTO user_resultdataset_relationship(user_id,resultdataset_id) VALUES(#{user_id},#{resultdataset_id})  
+	</insert>
+	
+	<select id="findUserIdAndFilePathByDid" resultType="map">
+	    select user_id,file_path from user_result_filepath_view where resultdataset_id = #{resultId};
+	</select>
+	
+	<select id="getResultAttributeName" parameterType="int" resultType="String">
+		select attribute_name from attribute ta join resultdataset_attribute_relationship tr
+		on ta.attribute_id = tr.attribute_id where resultdataset_id = #{resultId}
+	</select>
+	
+</mapper>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="cn.edu.cqupt.rubic_business.dao.ModelAPIDao">
+
+	<sql id="modelApiItems">
+		model_api_id,model_id,api_description,data_description,api_example,
+		api_type,version,api_name,interface_method,interface_add,example_add,format,user_id
+	</sql>
+
+	<sql id="modelApiValues">
+		#{model_api_id},#{model_id},#{api_description},#{data_description},
+		#{api_example},#{api_type},#{version},#{api_name},#{interface_method},#{interface_add},#{user_id}
+		#{example_add},#{format}
+	</sql>
+
+	<sql id="modelApiPartItems">
+		model_id,api_description,data_description,api_example,api_type,version,api_name,
+		interface_method,interface_add,example_add,format
+	</sql>
+
+	<sql id="modelApiPartValues">
+		#{model_id},#{api_description},#{data_description},#{api_example},#{api_type},#{version},
+		#{api_name},#{interface_method},#{interface_add},#{example_add},#{format}
+	</sql>
+
+	<sql id="modelApiAttributesItems">
+		model_api_id,attribute_item,attribute_description,attribute_name,attribute_type,
+		attribute_example,type
+	</sql>
+
+	<sql id="modelApiAttributesMapValues">
+		#{map.model_api_id},#{map.attribute_item},#{map.attribute_description},#{map.attribute_name},
+		#{map.attribute_type},#{map.attribute_example},#{map.type}
+	</sql>
+
+	<resultMap type="cn.edu.cqupt.rubic_business.Model.po.ModelPo"
+		id="ModelResult">
+		<result property="modelId" column="modelId" />
+		<result property="VerifyCode" column="VerifyCode" />
+		<result property="modelName" column="modelName" />
+		<result property="modelDescription" column="modelDescription" />
+		<result property="userId" column="userId" />
+		<result property="algorithmId" column="algorithmId" />
+		<result property="object" column="object" jdbcType="BLOB"
+			typeHandler="org.apache.ibatis.type.ByteArrayTypeHandler" />
+	</resultMap>
+
+
+	<!--查询所有数据 -->
+	<select id="getAllModelApiPo" resultType="cn.edu.cqupt.rubic_business.Model.po.ModelAPIPo">
+		select * from model_api
+	</select>
+
+	<!--查询所有数据并返回Map -->
+	<select id="getAllModelApiPoReturnMap" resultType="java.util.Map">
+		SELECT * from model_api
+	</select>
+
+	<!-- 返回去重之后的所有apiType -->
+	<select id="getAllModelApiType" resultType="java.lang.String">
+		select DISTINCT api_type from model_api
+	</select>
+
+	<!--根据apiType查询指定的modelApi -->
+	<select id="getModelApiPoByType" resultType="cn.edu.cqupt.rubic_business.Model.po.ModelAPIPo"
+		parameterType="java.lang.String">
+		SELECT * from model_api WHERE api_type=#{api_type}
+	</select>
+
+	<!--根据apiType查询指定的modelApi并返回map -->
+	<select id="getRelateModelApiByType" resultType="java.util.Map"
+		parameterType="java.lang.String">
+		SELECT * from model_api WHERE api_type=#{api_type}
+	</select>
+
+	<!--插入modelAPI基本信息并返回model_api_id -->
+	<insert id="insertModelApiInfo" parameterType="map">
+		<selectKey keyProperty="model_api_id" order="AFTER"
+			resultType="int">
+			SELECT LAST_INSERT_ID() AS model_api_id
+		</selectKey>
+		INSERT INTO model_api(
+		<include refid="modelApiPartItems"></include>
+		)
+		VALUES(
+		<include refid="modelApiPartValues"></include>
+		)
+	</insert>
+	<!--插入modelAPI的参数信息 -->
+	<insert id="insertModelApiParameter" parameterType="java.util.List">
+		INSERT INTO api_attribute(
+		<include refid="modelApiAttributesItems"></include>
+		)
+		VALUES
+		<foreach collection="list" item="map" index="index" separator=",">
+			(
+			<include refid="modelApiAttributesMapValues"></include>
+			)
+		</foreach>
+	</insert>
+
+	<!-- 删除modelapi -->
+	<delete id="deleteModelApi" parameterType="int">
+		DELETE
+		model_api,api_attribute from model_api LEFT JOIN api_attribute ON
+		model_api.model_api_id=api_attribute.model_api_id
+		where model_api.model_api_id=#{apiId}
+	</delete>
+
+	<!-- 根据modelApiId查询指定的modelApi -->
+	<select id="getModelApiById" resultType="cn.edu.cqupt.rubic_business.Model.po.ModelAPIPo"
+		parameterType="int">
+		select * from model_api where model_api_id=#{model_api_id}
+	</select>
+
+	<!-- 根据modelApiId查询指定的modelApi并返回Map -->
+	<select id="getModelApiByIdReturnMap" resultType="java.util.Map"
+		parameterType="int">
+		select * from model_api where model_api_id=#{model_api_id}
+	</select>
+	<!-- 根据userId查询该用户的所有API的简略信息 -->
+	<select id="findAllAPIByUserId" parameterType="int" resultType="map">
+		SELECT model_api_id,api_name,api_description,version FROM model_api
+		WHERE user_id=#{userId}
+	</select>
+
+	<!-- 根据apiId 查找model -->
+	<select id="findModelByAPIId" parameterType="int" resultMap="ModelResult">
+		select * from model where modelId=(select model_id from model_api
+		where model_api_id = #{model_api_id})
+	</select>
+
+
+</mapper>

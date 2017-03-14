@@ -1,0 +1,35 @@
+.bg-info{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.form-group{
+    position: relative;
+}
+.col-sm-3,.col-sm-6,.parameter{
+    margin-left: -10%;
+}
+.bg-info .form-group label{
+    text-align:left;
+}
+.bg-info .form-group textarea{
+    width:550px;
+    height:150px;
+    resize: none;
+}
+#total-patameter{
+	border:1px solid #2e6da4;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+#text{
+    position: absolute;
+    top:0;
+    width:260px;
+}
+#file{
+    filter:alpha(opacity=0);
+    overflow:
+    hidden;
+    opacity:0;
+}

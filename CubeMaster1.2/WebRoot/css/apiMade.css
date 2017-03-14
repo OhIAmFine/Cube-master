@@ -1,0 +1,23 @@
+h2{
+	display: inherit;
+	font-size: 28px;
+	margin: 0;
+	padding: 0;
+}
+.row:not(:nth-child(1)){
+	margin-top: 10px;
+}
+.attr{
+	margin-bottom: 10px;
+	background-color: #eee;
+	line-height: 40px;
+	height: 40px;
+
+}
+table{
+	text-align: center;
+}
+/* 隐藏iframe */
+iframe{
+	display: none;
+}

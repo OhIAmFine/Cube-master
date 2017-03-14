@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="zh-cmn-Hans">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>上传数据 - Rubic</title> 
+        <link rel="stylesheet" href="../css/refs/bootstrap/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../css/mystyle.css">
+        <link rel="stylesheet" type="text/css" href="../css/upLoadData.css">
+        <link rel="stylesheet" type="text/css" href="../css/global.css">
+    </head>
+
+    <body>
+        <div id="fixed-top"></div>
+        <header class="section-header">
+            <ol class="breadcrumb">
+                <li><a href="./dataPresent.html">数据模块</a></li>
+                <li class="active lead">上传数据</li>
+            </ol>
+        </header>
+        <div class="row">
+            <div class="container bg-info">
+                <div class="form-horizontal">
+                    <div id="single-data">
+                    	<div class="form-group sr-only">
+                            <label for="userId" class="col-sm-2 control-label">用户id：</label>
+                            <div class="col-sm-3">
+                                <input type="hidden" id="userId" class="form-control input-test" name="user_id">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="dataset_name" class="col-sm-2 control-label">数据名字：</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control input-test" id="inputName" name="dataset_name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="description" class="col-sm-2 control-label">简介：</label>
+                            <div class="col-sm-6">
+                                <textarea class="form-control input-test" id="introduction" name="description"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="associated_tasks" class="col-sm-2 control-label">数据类型：</label>
+                            <div class="col-sm-3" id="type">
+                                <select class="form-control input-test" id="data-type" name="dataset_type">
+                                    <option value="0">数值</option>
+                                    <option value="1">文本</option>
+                                    <option value="2">其他</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="associated_tasks" class="col-sm-2 control-label">算法类型：</label>
+                            <div class="col-sm-3" id="type">
+                                <select class="form-control input-test" id="inputText" name="associated_tasks">
+                                    <option value="分类算法">分类算法</option>
+                                    <option value="聚类算法">聚类算法</option>
+                                </select>
+                            </div>
+                        </div>
+                         <div class="form-group">
+                            <label for="associated_tasks" class="col-sm-2 control-label">运行平台：</label>
+                            <div class="col-sm-3" id="type">
+                                <select class="form-control input-test" name="data_platform">
+                                    <option value="hadoop">hadoop</option>
+                                    <option value="java">java</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="area" class="col-sm-2 control-label">范围：</label>
+                            <div class="col-sm-3" id="type">
+                                <input type="text" class="form-control input-test" id="inputText" name="area" placeholder="数据集来源的领域">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="form-group">
+                        <label for="name" class="col-sm-2 control-label">关键词：</label>
+                        <div class="col-sm-3" id="key">
+                            <input type="text" class="form-control input-test" id="inputKey" name="key_word">
+                        </div>
+                    </div> -->
+                    <!-- <div class="form-group" >
+                        <label for="name" class="col-sm-2 control-label">输入格式：</label>
+                        <div class="col-sm-6">
+                            <textarea class="form-control input-test" id="inPattern" name="in_pattern"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="name" class="col-sm-2 control-label">输出格式：</label>
+                        <div class="col-sm-6">
+                            <textarea  class="form-control input-test" id="outPattern" name="out_pattern"></textarea>
+                        </div>
+                    </div> -->
+                    <!--<div class="form-group">
+                        <label for="name" class="col-sm-2 control-label">可用数据集：</label>
+                        <div class="col-sm-3">
+                              <input type="text" class="form-control" id="inputUse">
+                        </div>
+                    </div>-->
+                    <!-- <div class="form-group">
+                        <label for="name" class="col-sm-2 control-label">测试数据集：</label>
+                        <div class="col-sm-3">
+                              <input type="text" class="form-control input-test" id="inputTest" name="testData">
+                        </div>
+                    </div> -->
+                    <div class="form-group" id="total-patameter">
+                        <div id="patameter-main" class="row">
+                            <label for="attribute_name" class="col-sm-2 control-label">字段名称：</label>
+                            <div class="col-sm-2 parameter">
+                                <input type="text" class="form-control input-test" name="attribute_name">
+                            </div>
+                            <label for="attribute_type" class="col-sm-2 control-label">数据库字段：</label>
+                            <div class="col-sm-2 parameter">
+                                <div class="input-group" id="select-parent">
+                                    <select id="seletion" class="form-control selected input-test" style="width:164px;border-radius:4px"
+                                    name="attribute_database_type">
+                                        <option value="int">int</option>
+                                        <option value="double">double</option>
+                                        <option value="char">char</option>
+                                        <option value="varchar">varchar</option>
+                                        <option value="float">float</option>
+                                        <option value="short">short</option>
+                                        <option value="boolean">boolean</option>
+                                        <option value="longblob">longblob</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <label for="attribute_range" class="col-sm-2 control-label">字段范围：</label>
+                            <div class="col-sm-2 parameter">
+                                <input type="text" class="form-control input-test" name="attribute_range" placeholder="格式例如1~10">
+                            </div>
+                            <label for="attribute_missing" class="col-sm-2 control-label">字段丢失：</label>
+                            <div class="col-sm-2 parameter">
+                                <input type="text" class="form-control input-test" name="attribute_missing">
+                            </div> 
+                            <label for="attribute_label" class="col-sm-2 control-label">字段文本:</label>
+                            <div class="col-sm-2 parameter">
+                                 <select name="attribute_label" class="form-control input-test">
+                                     <option value="0">原始</option>
+                                     <option value="1">结果</option>
+                                 </select>
+                            </div>
+                            <label for="attribute_character" class="col-sm-2 control-label">字段特征:</label>
+                            <div class="col-sm-2 parameter">
+                                <select name="attribute_character" class="form-control input-test" name="attribute_character">
+                                    <option value="0">离散数据</option>
+                                    <option value="1">连续数据</option>
+                                    <option value="3">复杂数据</option>
+                                    <option value="2">布尔数据</option>
+                                </select>
+                            </div>
+                            <label for="attribute_sequence" class="col-sm-2 control-label">字段序列:</label>
+                            <div class="col-sm-2 parameter data-sequence">
+                               <input type="text" class="form-control input-test" name="attribute_sequence" placeholder="该字段在文件的列数">
+                            </div>
+                            <label for="attribute_sequence" class="col-sm-2 control-label">字段类型:</label>
+                            <div class="col-sm-2 parameter">
+                                <select class="form-control input-test" name="attribute_type">
+                                    <option value="文本">文本</option>
+                                    <option value="数值">数值</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-default pull-right" id="append" style="margin-top:-68px;margin-right:22px;">添加</button>
+                    </div>
+                    <!--<div class="form-group" id="pakge">
+                        <label class="col-sm-2 control-lable" for="pakge-name">包名(包名.类名)</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control input-test" id="pakge-name" name="package_name">
+                        </div>
+                    </div>-->
+                    <form enctype="multipart/form-data" method="post" action="http://172.22.146.5/FileSystem/servlet/DataSetUploadServlet" target="load" id="fid">
+                        <input type="hidden" name="updataset">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-lable" for="file">测试数据：</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" id="text" value="点击上传文件">
+                                <input type="file" class="form-control input-test" id="file" name="file">
+                            </div>
+                        </div>
+                    </form>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-lable">是否公开:</label>
+                        <div class="col-sm-3">
+                            <input type="radio" name="ispublic" value="0">
+                            <label for="ispublic">公开</label>
+                            <input type="radio" name="ispublic" value="1">
+                            <label for="ispublic">不公开</label> 
+                        </div>
+                    </div>
+                    <div class="form-group">
+                    		<div class="progress">
+							  <div class="progress-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em;width: 10%;">
+							    0%
+							  </div>
+							</div>	
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-1 col-sm-offset-5">
+                            <input type="button" class="btn btn-default" id="upload" value="上传">
+                        </div>
+                        <div class="col-sm-1">
+                            <button type="reset" class="btn btn-default">取消上传</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer id="common-footer"></footer>
+        <iframe name="load" style="display:none"></iframe>
+        <script src="../js/config.js"></script>
+        <script type="text/javascript" src="../js/refs/jquery/jquery.min.js"></script>
+        <script src="../js/loadTpls.js"></script>
+        <script type="text/javascript" src="../js/refs/bootstrap/bootstrap.min.js"></script>
+        <script type="text/javascript" src="../js/upLoadData.js"></script>
+    </body>
+</html>

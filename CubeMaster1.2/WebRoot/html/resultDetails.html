@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>结果详情</title>
+		<link rel="stylesheet" href="../css/normalize.min.css">
+        <link rel="stylesheet" href="../css/refs/bootstrap/bootstrap.min.css">
+       	<link rel="stylesheet" href="../css/global.css">
+       	<link rel="stylesheet" href="../css/resultDetails.css" />
+	</head>
+	<body>
+		 <div id="fixed-top"></div>
+		 <header class="section-header">
+	        <ol class="breadcrumb">
+	            <li><a href="./resultRun.html">结果</a></li>
+	        </ol>
+	        <!-- <span class="subtitle">
+	            这里写简介
+	        </span> -->
+    </header>
+	<div id="search">
+        <form class="form-inline">
+            <div class="form-group">
+                <label class="sr-only" for="search-input">搜索内容</label>
+                <input type="text" class="form-control" id="search-input" placeholder="请输入要搜索的内容">
+                <button class="btn btn-default">搜索</button>
+            </div>
+        </form>
+    </div>
+    
+    <div class="container content">
+    	<div class="row">
+    		<div class="col-md-4"><b>算法与数据</b><span class="algorithm-left"></span>&nbsp;<span class="glyphicon glyphicon-plus"></span>&nbsp;<span class="dataset-right"></span></div>
+    		<div class="col-md-4"><b>运行开始时间</b></div>
+    		<div class="col-md-4"><b>运行结束时间</b></div>
+    		<div class="col-md-4"><b>运行状态</b></div>
+    		<div class="col-md-4"><b>运行平台</b></div>
+    	</div>
+    	<!--<div class="row">
+             <div class="col-md-4"><h3 class="text-primary">数据名字</h3></div>
+            <div class="col-md-4"><b>作者:</b><span></span></div>
+            <div class="col-md-4"><b>最近更新时间:</b><span></span></div>
+        </div>
+        <div class="row">
+             <div class="col-md-12">
+                <p><b>简介：</b><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin    gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque  penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget odio.</span></p>
+            </div> 
+        </div>
+        <div class="row">
+             <div class="col-md-4">
+               <b>类型:</b><span></span>
+           </div>
+           <div class="col-md-4">
+               <b>下载次数:</b><span></span>
+           </div>
+           <div class="col-md-4">
+               <b>来源领域:</b><span></span>
+           </div> 
+        </div>
+        <div class="row">
+             <div class="col-md-12"><b>字段列表:</b></div>
+            <div class="col-md-11 col-md-offset-1 list">
+               <div class="col-md-2">名称：<span></span></div>
+               <div class="col-md-2">类型：<span></span></div>
+               <div class="col-md-2">范围：<span></span></div>
+            </div> 
+        </div>-->
+        <div class="row" id="data-row">
+            <div class="col-md-2 pattern"><b>数据文本：</b></div>
+            <div class="col-md-7 pattern-content"><button class="btn" id="show-datas">点击展开</button></div>
+            <div class="col-md-2"><button class="btn btn-primary" id="send-id">选择</div>
+        </div>
+        
+        <div class="panel" id="data-panel">	
+        		<pre><code class='javascript' id="data-code"></code>
+        			<button class="data_hasmore btn btn-primary col-md-1" id="data_hasmore">显示更多</button>
+        		</pre>
+        </div>
+        
+    </div>
+		 
+		 
+		  <footer id="common-footer">
+    	  </footer>
+      <script src="../js/config.js"></script>
+    	 <script src="../js/refs/jquery/jquery.min.js"></script>
+		  <script src="../js/loadTpls.js"></script>
+		  <script src="../js/refs/vue/vue.min.js"></script>
+		  <script src="../js/refs/echarts/echarts-all.js"></script>
+		  <script src="../js/resultDetails.js" ></script>
+		  <script src="../js/refs/echarts/macarons.2.js"></script>
+		  <script src="../js/refs/bootstrap/bootstrap.min.js"></script>
+		  
+	</body>
+</html>

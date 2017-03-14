@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+	
+<mapper namespace="cn.edu.cqupt.rubic_business.dao.VisualizationDao">
+	
+	<!-- 根据id从visula表中查询一条记录 -->
+	<select id="findVisualizationById" parameterType="int" resultType="java.util.HashMap">
+		select * from visual where visual_id = #{visual_id}
+	</select>
+	
+	<!-- 查找所有visualId -->
+	<select id="getAllVisualizationId" resultType="int">
+		select visual_id from visual;
+	</select>
+	
+	<!-- 通过ResultdatasetId查找所有的AttributeId -->
+	<select id="findAllAttributeIdByResultdatasetId" parameterType="int" resultType="Integer">
+		select attribute_id from resultdataset_attribute_relationship 
+		where resultdataset_id = #{resultdataset_id}
+	</select>
+	
+	<!-- 根据character获取Id -->
+	<select id="getVisualizationIdByCharacter" parameterType="int" resultType="int">
+		select visual_id from visual where visual_character = #{visual_character}
+	</select>
+	
+	<!-- 获取所有可视化 -->
+	<select id="getAllVisualization" resultType="map">
+		select * from visual;
+	</select>
+	
+	<!-- 获取所有type -->
+	<select id="getAllTypes" resultType="String">
+		select distinct(visual_type) from visual;
+	</select>
+	
+	<!-- 根据id查询type -->
+	<select id="getTypesById" resultType="String">
+	   select visual_type from visual where visual_id =#{visual_id};
+	</select>
+	
+	<!-- 根据type查找visual -->
+	<select id="getVisualizationByType" parameterType="String" resultType="map">
+		select * from visual where visual_type = #{visual_type}
+	</select>
+	
+	<!-- 根据Visual_id查找calculation-->
+	<select id="getCalculationById"  parameterType="int" resultType="map">
+	   select c1.calculation_id,c1.calculation_name 
+	   from calculation c1 RIGHT JOIN visual_calculation_relationship v1 ON (c1.calculation_id = v1.calculation_id)
+	                       RIGHT JOIN visual v2 ON (v1.visual_id = v2.visual_id)
+	   where v2.visual_id = #{visual_id}
+	</select>
+	
+	<select id="getIdByType" parameterType="String" resultType="map">
+	    select visual_id from visual where visual_type = #{visual_type}
+	</select>
+	
+	<select id="findAllVisualization" resultType="cn.edu.cqupt.rubic_business.Model.po.VisualizationPo">
+		select * from visual
+	</select>
+	
+	<select id="getCalculationIdsById" parameterType="int" resultType="int">
+		select calculation_id from visual_calculation_relationship 
+			where visual_id = #{id}
+	</select>
+	
+	<select id="findAllRule" resultType="map">
+		select * from rule
+	</select>
+	
+	<!-- 根据ruleid查找图表id -->
+	<select id="findVisualIdsByRuleId" parameterType="int" resultType="int">
+		select visual_id from visual_rule_relationship where rule_id = #{rule_id}
+	</select>
+	
+	<!-- 根据ruleid查找methodName -->
+	<select id="findMethodNameByRid" resultType="String">
+	    select method_name from rule where rule_id=#{ruleId}
+	</select>
+	
+	<!-- 根据ruleId查找arguments -->
+	<select id="findArgumentsByRuleId" parameterType="int" resultType="map">
+		select * from argument_for_rule where rule_id = #{rule_id}
+	</select>
+	
+	<!-- 查询所有Rule类型 -->
+	<select id="findAllRuleType" resultType="string">
+		select distinct rule_type from rule
+	</select>
+	
+	<!-- 根据Rule类型 查找  Rule-->
+	<select id="findRuleByType" parameterType="string" resultType="map">
+		select * from rule where rule_type = #{rule_type}
+	</select>
+	
+</mapper>

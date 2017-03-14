@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rubic数据展示</title>
+    <link rel="stylesheet" href="../css/normalize.min.css">
+    <link rel="stylesheet" href="../css/refs/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/dataDesc.css">
+    <link rel="stylesheet" href="../css/global.css">
+    
+</head>
+<body>
+    <div id="fixed-top"></div>
+    <header class="section-header">
+        <ol class="breadcrumb">
+            <li><a href="./dataPresent.html">数据展示</a></li>
+            <li class="active">{{name}}</li>
+        </ol>
+        <!-- <span class="subtitle">
+            这里写简介
+        </span> -->
+    </header>
+    <div id="search">
+        <form class="form-inline">
+            <div class="form-group">
+                <label class="sr-only" for="search-input">搜索内容</label>
+                <input type="text" class="form-control" id="search-input" placeholder="请输入要搜索的内容">
+                <button class="btn btn-default">搜索</button>
+            </div>
+        </form>
+    </div>
+    <!-- <div class="describe container">
+        <h2>数据介绍</h2>
+        <span>介绍内容</span>
+        <table class="table table-bordered table-striped table-hover" id="table-info" border="0">
+        </table>
+        <div class="row">
+            <div class="col-md-6"><div class="graph" id="render-stem"></div></div>
+            <div class="col-md-6"><div class="graph" id="render-correct"></div></div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="graph" id="render-distribute"></div>
+            </div>
+        </div>
+    </div> -->
+
+    <div class="container content">
+        <div class="row">
+            <!-- <div class="col-md-4"><h3 class="text-primary">数据名字</h3></div>
+            <div class="col-md-4"><b>作者:</b><span></span></div>
+            <div class="col-md-4"><b>最近更新时间:</b><span></span></div> -->
+        </div>
+        <div class="row">
+            <!-- <div class="col-md-12">
+                <p><b>简介：</b><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin    gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque  penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget odio.</span></p>
+            </div> -->
+        </div>
+        <div class="row">
+           <!--  <div class="col-md-4">
+               <b>类型:</b><span></span>
+           </div>
+           <div class="col-md-4">
+               <b>下载次数:</b><span></span>
+           </div>
+           <div class="col-md-4">
+               <b>来源领域:</b><span></span>
+           </div> -->
+        </div>
+        <div class="row">
+            <!-- <div class="col-md-12"><b>字段列表:</b></div>
+            <div class="col-md-11 col-md-offset-1 list">
+               <div class="col-md-2">名称：<span></span></div>
+               <div class="col-md-2">类型：<span></span></div>
+               <div class="col-md-2">范围：<span></span></div>
+            </div> -->
+        </div>
+        <div class="row" id="data-row">
+            <div class="col-md-2 pattern"><b>数据文本：</b></div>
+            <div class="col-md-10 pattern-content"><button class="btn" id="show-datas">点击展开</button></div>
+        </div>
+        
+        <div class="panel" id="data-panel">	
+			<pre><code class='javascript' id="data-code"></code>
+    			<button class="data_hasmore btn btn-primary col-md-1" id="data_hasmore">显示更多</button>
+    		</pre>
+        	
+        
+        <!--<div class="modal fade" id="data-details" role="dialog" aria-labelledby="实际数据">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="关闭"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">数据值</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="data"></div>
+                    </div>
+                </div>
+            </div>
+        </div>-->
+    </div>
+
+    <footer id="common-footer">
+    </footer>
+    <script src="../js/config.js"></script>
+    <script src="../js/refs/jquery/jquery.min.js"></script>
+    <script src="../js/loadTpls.js"></script>
+    <script src="../js/refs/vue/vue.min.js"></script>
+    <script src="../js/refs/echarts/echarts-all.js"></script>
+    <script src="../js/refs/echarts/macarons.2.js"></script>
+    <script src="../js/dataDesc.js"></script>
+    <script src="../js/refs/bootstrap/bootstrap.min.js"></script>
+    
+</body>
+</html>

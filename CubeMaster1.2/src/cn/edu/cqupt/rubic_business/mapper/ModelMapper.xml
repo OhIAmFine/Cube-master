@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="cn.edu.cqupt.rubic_business.dao.ModelDao">
+
+	<sql id="modelColumn">
+		VerifyCode,modelName,modelDescription,object,userId,algorithmId,xmlInfo
+	</sql>
+	
+	<sql id="modelColumnValue">
+		#{VerifyCode},#{modelName},#{modelDescription},#{object,jdbcType=BLOB,typeHandler=org.apache.ibatis.type.ByteArrayTypeHandler},#{userId},#{algorithmId},#{xmlInfo}
+	</sql>
+	
+	<resultMap type="cn.edu.cqupt.rubic_business.Model.po.ModelPo" id="ModelResult">
+		<result property="modelId" column="modelId"/>
+		<result property="VerifyCode" column="VerifyCode"/>
+		<result property="modelName" column="modelName"/>
+		<result property="modelDescription" column="modelDescription"/>
+		<result property="userId" column="userId"/>
+		<result property="algorithmId" column="algorithmId"/>
+		<result property="object" column="object" jdbcType="BLOB" 
+		typeHandler="org.apache.ibatis.type.ByteArrayTypeHandler"/>
+	</resultMap>
+	
+	<insert id="insretModel" parameterType="cn.edu.cqupt.rubic_business.Model.po.ModelPo">
+		<selectKey resultType="int" keyProperty="modelId" order="AFTER">
+			SELECT LAST_INSERT_ID() as modelId
+		</selectKey>
+		INSERT INTO model(<include refid="modelColumn"/>)
+		VALUES(<include refid="modelColumnValue"/>)
+	</insert>
+
+	<select id="findModelById" parameterType="Integer" resultMap="ModelResult">
+		SELECT * FROM model WHERE modelId=#{modelId}
+	</select>
+
+	<select id="findModelByUserId" parameterType="Integer" resultMap="ModelResult">
+		SELECT * FROM model WHERE userId=#{userId}
+	</select>
+	
+	<select id="findModelByAid" parameterType="Integer" resultMap="ModelResult">
+		SELECT * FROM model WHERE algorithmId=#{algorithmId}
+	</select>
+
+	<update id="updateModel" parameterType="cn.edu.cqupt.rubic_business.Model.po.ModelPo">
+		UPDATE model SET VerifyCode=#{VerifyCode},modelName=#{modelName},
+		modelDescription=#{modelDescription},object=#{object},userId=#{userId},algorithmId=#{algorithmId}
+		WHERE modelId=#{modelId}
+	</update>
+
+	<delete id="deleteModel">
+		DELETE FROM model WHERE modelId=#{modelId}
+	</delete>
+	
+	<select id="findAllModelByUserId" parameterType="int" resultType="map">
+		SELECT modelId model_id,modelName model_name,modelDescription model_description,related FROM model 
+		WHERE userId=#{userId}
+	</select>
+</mapper>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <title>算法-数据-组合</title>
+    <link rel="stylesheet" href="../css/normalize.min.css">
+    <link rel="stylesheet" href="../css/refs/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/runAlgo.css">
+</head>
+<body>
+    <div id="fixed-top"></div>
+    <header>
+        <ol class="breadcrumb">
+            <li><a href="#">组合</a></li>
+        </ol>
+        <span class="subtitle">
+            选择您需要组合的算法+数据源
+        </span>
+    </header>
+    <div class="container run-algo-selections">
+        <div class="row">
+            <div class="col-md-6 col-sm-6 selection" id="select-algorithm">
+                <h2>选择算法</h2>
+                <ul>
+                    <!-- <li class="select-item">
+                        <a href="javascript:">K_Means</a><button role="button" class="btn btn-primary" data-id="0">选择</button>
+                        <ul class="item-param">
+                            <li class="item-param-intro">请填写参数</li>
+                            <li class="item-param-input input-group-sm form-group">
+                                <label class="col-md-5 col-sm-5 col-xs-5">这是一个参数 (int)</label>
+                                <div class="col-md-6 col-sm-6 col-xs-6">
+                                    <input class="form-control" type="text" value="5" data-type="Int" data-id="123">
+                                </div>
+                            </li>
+                            
+                        </ul>
+                    </li>
+                    <li class="select-item">
+                        <a href="javascript:">K_Means</a><button role="button" class="btn btn-primary" data-id="0">选择</button>
+                    </li>
+                    <li class="select-item">
+                        <a href="javascript:">K_Means</a><button role="button" class="btn btn-primary" data-id="0">选择</button>
+                    </li> -->
+                </ul>
+            </div>
+            <div class="col-md-6 col-sm-6 selection" id="select-dataSet">
+                <h2>选择数据源</h2>
+                <ul>
+                    <!-- <li class="select-item">
+                        <a href="javascript:">花</a><button role="button" class="btn btn-primary" data-id="0">选择</button>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container run-algo-require">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1 col-sm-offset-1">
+                算法<span class="glyphicon glyphicon-ok text-primary algorithm-selected" aria-label="已选择"></span>
+                <span class="glyphicon glyphicon-plus" aria-label="加上"></span>
+                数据源<span class="glyphicon glyphicon-ok text-primary dataSet-selected" aria-label="已选择"></span>
+                <span class="glyphicon glyphicon-arrow-right" aria-label="满足前面的，则"></span>
+                <button class="btn btn-primary disabled" id="run-btn">运行</button>
+            </div>
+        </div>
+       <!-- <div class="row">
+        	<div class="col-md-6 col-md-offset-1">
+        		运行状态:
+        		<span class="run-algo-message"></span>
+        	</div>
+        </div>-->
+    </div>
+    <footer id="common-footer">
+        
+    </footer>
+    <script src="../js/config.js"></script>
+    <script src="../js/refs/jquery/jquery.min.js"></script>
+    <script src="../js/loadTpls.js"></script>
+    <script src="../js/refs/bootstrap/bootstrap.min.js"></script>
+    <script src="../js/runAlgo.js"></script>
+</body>
+</html>

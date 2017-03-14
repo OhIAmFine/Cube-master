@@ -1,0 +1,7 @@
+.download{
+	width:10em;
+	margin-top:75px;
+	margin-left:50px;
+}
+.container{text-align:center;}
+.download:first-child{margin-left:0;}

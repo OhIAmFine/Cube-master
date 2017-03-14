@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="cn.edu.cqupt.rubic_business.dao.KeywordDao">
+
+	<!-- 添加关键字 map -->
+	<insert id="addKeywordInMap" parameterType="map">
+		<selectKey resultType="int" keyProperty="keyword_id" order="AFTER">
+			select LAST_INSERT_ID() as keyword_id
+		</selectKey>
+		insert into keyword (keyword) values (#{keyword})
+	</insert>
+
+	<insert id="addKeyword" parameterType="cn.edu.cqupt.rubic_business.Model.po.KeywordPo">
+		insert into keyword(keyword) values (#{keyword})
+	</insert>
+	
+	<select id="findKeywordByKid" parameterType="int" resultType="cn.edu.cqupt.rubic_business.Model.po.KeywordPo">
+		select * from keyword where keyword_id=#{keyword_id}
+	</select>
+	
+	<select id="findKeywordByAid" parameterType="int" resultType="cn.edu.cqupt.rubic_business.Model.po.KeywordPo">
+		SELECT * FROM `algorithm` t1 LEFT JOIN algorithm_keyword_relationship t2 ON(t1.algorithm_id=t2.algorithm_id)
+														 LEFT JOIN keyword t3 ON (t2.keyword_id=t3.keyword_id)
+		WHERE t1.algorithm_id=#{keyword_id}
+	</select>
+	
+	<select id="findIdByName" parameterType="String"  resultType="int">
+		select max(keyword_id) from keyword where keyword = #{keyword}
+	</select>
+</mapper>
+

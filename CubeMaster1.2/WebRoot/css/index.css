@@ -1,0 +1,15 @@
+header{
+    margin:0;
+}
+
+#profile{
+    width: 100%;
+    height: 500px;
+    margin-top: -50px;
+}
+#profile h1{
+    text-align: center;
+    line-height: 400px;
+    font-size: 8rem;
+    font-weight: bold;
+}

@@ -1,0 +1,183 @@
+
+
+/* 数据算法可视化选择主体 */
+.result-visual-selections{
+    overflow: hidden;
+}
+.result-visual-selections .selection{
+    border-left: 3px solid #aaa;
+    margin-bottom: -4000px;
+    padding-bottom: 4000px;
+}
+.result-visual-selections .selection:first-child{
+    border-left: none;
+}
+@media (max-width:768px){
+    .result-visual-selections .selection{
+        border-left: 0;
+    }
+}
+.result-visual-selections h2{
+    text-align: center;
+}
+.result-visual-selections ul{
+    padding-left: 0;
+    margin-top: 1em;
+    overflow-y: auto;
+}
+.result-visual-selections li{
+    height: auto;
+    margin-top: 1.2em;
+    margin-bottom:0.1em;
+    list-style: none;
+    font-size: 1.4em;
+    text-indent: 2em;
+}
+.result-visual-selections li button,.original-col-selection li button{
+    float: right;
+    margin-right: 2em;
+}
+
+/* #select-original, */#select-result{
+    display: none;
+}
+.data-original a{
+    color: black;
+}
+
+/* 点击结果选择弹出列选择框 */
+.result-col-selection,.visual-col-selection,.original-col-selection,.rule-col-selection,.rule-item-param{
+    display: none;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: .5em;
+    font-size: .8em;
+    text-indent: 0;
+    text-align: center;
+}
+
+.result-col,.visual-col,.original-col,.rule-col,.rule-item{
+    display: inline-block;
+    border: 2px solid #aaa;
+    padding: .3em .6em;
+    margin-top: .4em;
+    margin-bottom: .2em;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    -webkit-transition: all .1s linear;
+    -moz-transition: all .1s linear;
+    -o-transition: all .1s linear;
+    transition: all .1s linear;
+}
+.result-col:hover,.visual-col:hover,.original-col:hover,.rule-col:hover{
+    border-color: rgb(40,96,144);
+}
+.result-col-active,.visual-col-active,.original-col-active,.rule-col-active,.rule-item-active{
+    border-color: rgb(40,96,144);
+}
+
+.rule-item-danger{
+    border-color: #a94442;
+}
+/* 添加 数据 规则 可视化 */
+.result-rule-visual-add{
+    text-align: center;
+    margin-top: 3em;
+}
+
+/* 下方的结果 + 可视化 = 添加组合 */
+.rule-resulr-visual-require {
+    margin: 4em 0 2em;
+    font-size: 1.4em;
+    text-align: center;
+}
+
+.rule-resulr-visual-require .glyphicon-ok{
+    padding-left: 1em;
+    visibility: hidden;
+}
+.rule-resulr-visual-require .glyphicon-plus,.rule-resulr-visual-require .glyphicon-arrow-right{
+    padding: 0em 2em;
+}
+
+/* 右侧已选择组合 */
+.selected-group{
+    min-height: 500px;
+    border-left: 3px solid #3C763D;
+}
+.group{
+    padding: 1em .5em;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    box-sizing:border-box;
+    border:3px solid rgb(223,240,216);
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+.group-desc{
+    margin-top: 2em;
+}
+.group-plus{
+    position: static;
+    display: block;
+    margin: .5em 0;
+    text-indent: 1em;
+}
+.group-img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: 500px;
+}
+
+
+/*tab数据选择菜单*/
+.data-type{
+    background-color: #f5f5f5;
+    margin:0;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    border-radius: 4px;
+}
+.data-type li{
+    margin: 0;
+    float: left;
+    padding: 8px 0 8px 0;
+    padding-right: 1.2em;
+    border-right: 2px solid #aaa;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    border-radius: 4px;
+}
+.data-type li a{
+    text-decoration: none;
+}
+.data-type li:hover{
+    background-color: rgba(235, 235, 235, 0);
+}
+
+/* 向上滑动至顶部的图标 */
+#top-control{
+    position: fixed;
+    right: 36px;
+    bottom: 36px;
+    display: none;
+    cursor: pointer;
+}
+
+.graph{
+    height: 350px;
+    margin-bottom: 20px;
+    width:100%;
+}
+#graph-wrap{
+    text-align: center;
+}
+.table{
+    margin: 0 auto;
+    text-align: center;
+}
+

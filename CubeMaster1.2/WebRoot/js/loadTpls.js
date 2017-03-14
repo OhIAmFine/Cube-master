@@ -1,0 +1,16 @@
+$(function(){
+    $.ajax({
+        type:'get',
+        url:'/cubemaster/html/tpls/fixedTop.html',
+        dataType:'text'
+    }).success(function(res){
+        $('#fixed-top').html(res);
+    })
+    $.ajax({
+        type:'get',
+        url:'/cubemaster/html/tpls/footer.html',
+        dataType:'text'
+    }).success(function(res){
+        $('#common-footer').html(res);
+    })
+})

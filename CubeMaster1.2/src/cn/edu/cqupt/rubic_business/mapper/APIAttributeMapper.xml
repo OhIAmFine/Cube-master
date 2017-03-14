@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="cn.edu.cqupt.rubic_business.dao.APIAttributeDao">
+     
+     <sql id="APIAttributeItems">
+         api_attribute_id,model_api_id,attribute_name,attribute_description,
+         attribute_item,attribute_type,attribute_example,type
+     </sql>
+     
+     <sql id="APIAttributeValues">
+        #{api_attribute_id},#{model_api_id},#{attribute_name},#{attribute_description},
+        #{attribute_item},#{attribute_type},#{attribute_example},#{type}
+     </sql>
+     
+     
+     <!-- 返回所有type-->
+      <select id="getAllAttributeType" resultType="java.lang.String">
+          select DISTINCT type from api_attribute 
+      </select>
+   
+      <!-- 根据modelApiId返回指定apiAttribute -->
+      <select id="getApiAttributeByApiId" parameterType="int" resultType="cn.edu.cqupt.rubic_business.Model.po.APIAttributePo">
+         select * from api_attribute where model_api_id = #{model_api_id}
+      </select>
+      
+       <!-- 根据modelApiId以Map返回指定apiAttribute -->
+      <select id="getAttributeByApiIdReturnMap" parameterType="int" resultType="java.util.Map">
+         select * from api_attribute where model_api_id = #{model_api_id}
+      </select>
+       
+      <select id="getAllAttributeByApiIdReturnMap" parameterType="int" resultType="java.util.Map">
+         select interface_method,interface_add,example_add,format,data_description,api_example
+         from  model_api where model_api_id=#{model_api_id}
+      </select> 
+
+
+</mapper>

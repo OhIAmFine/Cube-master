@@ -1,0 +1,19 @@
+.graph{
+	height: 350px;
+	margin-bottom: 20px;
+	width:100%;
+}
+#graph-wrap{
+	text-align: center;
+}
+.table{
+	margin: 0 auto;
+}
+/* 向上滑动至顶部的图标 */
+#top-control{
+	position: fixed;
+	right: 36px;
+	bottom: 36px;
+	display: none;
+	cursor: pointer;
+}

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <title>API详情</title>
+    <link rel="stylesheet" href="../css/normalize.min.css">
+    <link rel="stylesheet" href="../css/refs/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/apiMade.css">
+</head>
+<body>
+    <div id="fixed-top"></div>
+    <header>
+        <ol class="breadcrumb">
+            <li><a href="runEnvironment.html">API模块</a></li>
+            <li><a href="runEnvironment.html">model模块</a></li>
+            <li class="active"><h2>定制API</h2></li>
+        </ol>
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="row" data-id="1"><!-- <b>Model名称：</b>生活服务类< -->/div>
+            <div class="row"><!-- <b>Model描述：</b>快递查询API，覆盖国内外100余家快递公司业务中的公司名称、快递电话、快递进度等信息。包含数据项为：缓存时间（当前时间与 update 之间的差值）、快递进度、快递公司英文代码、快递公司中文名、快递单号、快递电话、最后更新时间等数据项。可用于快递信息查询、快递派送路线分析及优化、快递公司效率对比与选择、快递公司经营分析与优化、快递大户搜索统计，快递物品分析及营销投放、快递效率优化、快递公司快递员KPI、快递公司电话查询、经济景气指数建立与预测等。 --></div>
+            <div class="row">
+                <form class="form-horizontal" target="apiMadeFrame">
+                    <div class="form-group">
+                        <label class="col-sm-1 control-lable" >API名称：</label>
+                        <div class="col-sm-2">
+                            <input type="text" class="form-control" placeholder="API的名称" name="api_name">
+                        </div>
+                        <label class="col-sm-1 control-lable">API版本：</label>
+                        <div class="col-sm-2">
+                            <input type="text" class="form-control" name="version">
+                        </div>
+                        <label class="col-sm-1 control-lable">API类型：</label>
+                        <div class="col-sm-2">
+                            <input type="text" class="form-control" name="api_type">
+                        </div>
+                        <label class="col-sm-1 control-control" >返回格式：</label>
+                        <div class="col-sm-2">
+                            <input type="text" class="form-control"  placeholder="Json" name="format">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-1 control-lable">API描述：</label>
+                        <div class="col-sm-6">
+                            <textarea class="form-control" placeholder="对Api进行简单的描述" name="api_description">一些api的描述</textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-1 control-lable">数据描述：</label>
+                        <div class="col-sm-6">
+                            <textarea class="form-control" placeholder="输入一些真实有效的数据" name="data_description">一些数据的描述</textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-1 control-lable">返回样例：</label>
+                        <div class="col-sm-6">
+                            <input class="form-control" name="api_example" type="text">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-1 control-lable">接口方法：</label>
+                        <div class="col-sm-6">
+                            <input class="form-control" name="interface_method" type="text">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-1 control-lable">接口地址：</label>
+                        <div class="col-sm-6">
+                            <input class="form-control" placeholder="系统自动生成" name="interface_add" type="text">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-1 control-lable">样例地址：</label>
+                        <div class="col-sm-6">
+                            <input class="form-control" placeholder="系统自动生成" name="example_add" type="text">
+                        </div>
+                    </div>
+                    <div class="col-sm-12 attr">API参数设置</div>
+                    <table class="table table-bordered">
+                        <!-- <thead>
+                            <tr>
+                                <td>参数名称</td>
+                                <td>参数类型</td>
+                                <td>返回项目</td>
+                                <td>参数描述</td>
+                                <td>项目样例</td>
+                                <td>参数样例</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td name="attribute_name">aaaaa</td>
+                                <td name="attribute_type">bbbbb</td>
+                                <td><input type="text" class="form-control" name="attribute_item"></td>
+                                <td><input type="text" class="form-control" name="attribute_description"></td>
+                                <td><input type="text" class="form-control" name="type"></td>
+                                <td><input type="text" class="form-control" name="attribute_example"></td>
+                            </tr>
+                            <tr>
+                                <td name="attribute_name">aaaaa</td>
+                                <td name="attribute_type">bbbbb</td>
+                                <td><input type="text" class="form-control" name="attribute_item"></td>
+                                <td><input type="text" class="form-control" name="attribute_description"></td>
+                                <td><input type="text" class="form-control" name="type"></td>
+                                <td><input type="text" class="form-control" name="attribute_example"></td>
+                            </tr>
+                            <tr>
+                                <td name="attribute_name">aaaaa</td>
+                                <td name="attribute_type">bbbbb</td>
+                                <td><input type="text" class="form-control" name="attribute_item"></td>
+                                <td><input type="text" class="form-control" name="attribute_description"></td>
+                                <td><input type="text" class="form-control" name="type"></td>
+                                <td><input type="text" class="form-control" name="attribute_example"></td>
+                            </tr>
+                        </tbody> -->
+                    </table>
+                    <div class="form-group">
+                        <div class="col-sm-1 col-sm-offset-5">
+                            <button type="sbumit" class="btn btn-default">上传</button>
+                        </div>
+                        <div class="col-sm-1">
+                            <button type="reset" class="btn btn-default">取消上传</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <iframe name="apiMadeFrame"></iframe>
+    <footer id="common-footer"></footer>
+    <script src="../js/config.js"></script>
+    <script src="../js/refs/jquery/jquery.min.js"></script>
+    <script src="../js/loadTpls.js"></script>
+    <script src="../js/refs/bootstrap/bootstrap.min.js"></script>
+    <script src="../js/apiMade.js"></script>
+</body>
+</html>

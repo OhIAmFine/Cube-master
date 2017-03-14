@@ -1,0 +1,98 @@
+h2,h4,h3,p{
+	margin: 0;
+	padding: 0;
+}
+h2{
+	display: inline;
+	font-size: 28px;
+}
+
+.col-md-12{
+	margin: 10px 0;
+}
+.col-md-8 .row + .row{
+	padding: 0 15px;
+}
+/* tab选项卡 */
+.tab-pane{
+	margin-top: 10px;
+}
+.tab-pane h4{
+	background-color: #eee;
+}
+.tab-pane > div{
+	border: 1px solid #eee;
+}
+.tab-pane h4,.tab-pane > div > div{
+	padding: 8px;
+}
+
+.tab-pane > div:nth-child(2){
+	margin-top: 10px;
+}
+
+.table{
+	margin-top: 10px;
+}
+/* 侧边栏 */
+.glyphicon{
+	float: left;
+	color: black;
+}
+.glyphicon-pencil{
+	padding-top: 5px;
+	font-size: 30px;
+}
+.glyphicon-thumbs-up{
+	padding-top: 4px;
+}
+.aside{
+	padding-left: 15px;
+}
+.aside > div{
+	width: 80%;
+}
+.aside p{
+	overflow: hidden;
+	text-overflow:ellipsis;
+	-o-text-overflow:ellipsis;
+}
+.apply-api{
+	background-color: #5cb85c;
+	padding: 15px;
+	color:white;
+}
+.apply-api div{
+	margin: 0 auto;
+	width: 122px;
+}
+.reco-api div:first-child{
+	background-color: #337ab7;
+	color: white;
+	font-size: 20px;
+}
+.apply-api,.reco-api div{
+	border: 1px solid #eee;
+}
+.reco-api{
+	margin-top:20px;
+}
+.reco-api div{
+	margin-top: 15px;
+	padding:10px;
+}
+.reco-api h4{
+	color: rgba(0,0,0,.6);
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap; 
+}
+.reco-api div + div:hover h4,.reco-api div + div:hover p{
+	text-decoration: underline;
+	cursor: pointer;
+}
+.reco-api div + div:hover{
+	border: 1px solid #A3A3A3;
+}
+
+

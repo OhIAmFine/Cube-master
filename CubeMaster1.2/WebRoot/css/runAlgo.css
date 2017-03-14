@@ -1,0 +1,70 @@
+/* 数据算法可视化选择主体 */
+.run-algo-selections{
+    overflow: hidden;
+}
+.run-algo-selections .selection{
+    border-left: 3px solid #aaa;
+    margin-bottom: -4000px;
+    padding-bottom: 4000px;
+}
+.run-algo-selections .selection:first-child{
+    border-left: none;
+}
+@media (max-width:768px){
+    .run-algo-selections .selection{
+        border-left: 0;
+    }
+}
+.run-algo-selections h2{
+    text-align: center;
+}
+.run-algo-selections ul{
+    padding-left: 0;
+    margin-top: 1em;
+    overflow-y: auto;
+}
+.run-algo-selections .select-item{
+    height: auto;
+    margin-top: 1.2em;
+    list-style: none;
+    font-size: 1.4em;
+}
+.run-algo-selections .select-item button{
+    margin-right: 2em;
+}
+
+.algoBtn-wrap,.dataBtn-wrap{
+    float:right;
+}
+/* 每个算法的参数 */
+.item-param{
+    display: none;
+    font-size: .8em;
+}
+.item-param-input{
+    height: 30px;
+    margin-top: .5em;
+    list-style: none;
+}
+.item-param-input label{
+    padding-top: 7px;
+    font-size: .8em;
+    text-align: left;
+}
+
+
+
+/* 下方的算法 + 数据 = 运行 */
+.run-algo-require {
+    margin: 7em 0 5em;
+    font-size: 1.4em;
+    text-align: center;
+}
+
+.run-algo-require .glyphicon-ok{
+    padding-left: 1em;
+    visibility: hidden;
+}
+.run-algo-require .glyphicon-plus,.run-algo-require .glyphicon-arrow-right{
+    padding: 0em 2em;
+}

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="cn.edu.cqupt.rubic_business.dao.DataSetDao">
+
+    <sql id="datasetItems">
+        dataset_id,dataset_name,dataset_type, associated_tasks,attribute_count,description,number_examples,
+        submit_datetime,area,download_count,file_path,ispublic,platform
+    </sql>
+    
+    
+    <sql id="datasetValues">
+    	#{dataset_id},#{dataset_name},#{dataset_type},#{associated_tasks},
+    	#{attribute_count}, #{description},#{number_examples},#{submit_datetime},
+	    #{area},#{download_count},#{file_path},#{ispublic},#{data_platform}
+    </sql>
+
+	<!--查询所有数据  -->
+	<select id="findAllDataSet" resultType="cn.edu.cqupt.rubic_business.Model.po.DataSetPo">
+	  select * from dataset
+	</select>
+	
+	<!--根据dataset_id查找数据  -->
+	<select id="findDataSetById" resultType="cn.edu.cqupt.rubic_business.Model.po.DataSetPo" parameterType="int">
+		select * from dataset where dataset_id=#{dataset_id}
+	</select>
+	
+	<!--根据dataset_id查找数据返回Map  -->
+	<select id="findDataSetByIdReturnMap" parameterType="int" resultType="java.util.Map">
+	   select * from dataset where dataset_id=#{dataset_id}
+	</select>
+	
+	<!-- 增加数据map形式 -->
+	<insert id="addDataSetMap">
+	    <selectKey resultType="int" keyProperty="dataset_id" order="AFTER">
+	        select LAST_INSERT_ID() as dataset_id   
+	    </selectKey>
+	    insert into dataset (<include refid="datasetItems"/>) values (<include refid="datasetValues" />)
+	</insert>
+	
+	<!--增加数据  -->
+	<insert id="addDataSet" parameterType="cn.edu.cqupt.rubic_business.Model.po.DataSetPo">
+		insert into dataset (<include refid="datasetItems"/>) values(<include refid="datasetValues"/>)
+							
+	</insert>
+	
+	<!--根据数据名字查找id  -->
+	<select id="findIdByName" resultType="int" parameterType="String">
+		select max(dataset_id) from dataset where dataset_name=#{dataset_name}
+	</select>
+	
+	<!-- 添加数据集属性关系 -->
+	<insert id="addAttributeRelationship" parameterType="java.util.Map">
+		insert into dataset_attribute_relationship(dataset_id, attribute_id) values (#{dataset_id}, #{attribute_id})
+	</insert>
+	
+	<!-- 添加数据集用户关系 -->
+	<insert id="addUserRelationship" parameterType="java.util.Map">
+		insert into user_dataset_relationship(user_id, dataset_id) values (#{user_id}, #{dataset_id})
+	</insert>
+	
+	<!--查询所有数据  -->
+	<select id="findCurrentUserDataSet" resultType="cn.edu.cqupt.rubic_business.Model.po.DataSetPo" parameterType="int">
+	  Select * From dataset Where dataset_id In(
+	  		Select dataset_id From user_dataset_relationship Where user_id=#{currentUserID}) Order By submit_datetime DESC
+	</select>
+	
+	<!-- 查询所有属性ID -->
+	<select id="getAttributesId" parameterType="int" resultType="list">
+		select attribute_id from dataset_attribute_relationship where dataset_id = #{dataset_id}
+	</select>
+	
+	<!-- 根据数据集id查询作者id和filepath -->
+	<select id="findUserIdAndFilePathByDid" resultType="java.util.Map">
+	    select user_id,file_path from user_dataset_filepath_view where dataset_id = #{dataSetId};
+	</select>
+	
+	<select id="getLabelSequence" parameterType="int" resultType="Integer"> 
+		SELECT attribute_sequence
+		FROM dataset_attribute_relationship t1 LEFT JOIN attribute t2 on (t1.attribute_id=t2.attribute_id) 
+		WHERE t1.dataset_id=#{dataSet_id} AND t2.attribute_label=1
+	</select>
+	
+	<select id="getLable" parameterType="int" resultType="cn.edu.cqupt.rubic_business.Model.po.AttributePo"> 
+		SELECT * FROM attribute WHERE attribute_id=(SELECT t2.attribute_id
+		FROM dataset_attribute_relationship t1 LEFT JOIN attribute t2 ON (t1.attribute_id=t2.attribute_id) 
+		WHERE t1.dataset_id=#{attribute_id} AND t2.attribute_label=1)
+	</select>
+	
+</mapper>

@@ -1,0 +1,380 @@
+<div class="navbar navbar-inverse navbar-fixed-top">
+	<div class="container">
+		<div class="navbar-header">
+			<button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a href="/cubemaster/html/index.html" class="navbar-brand">Cube Master</a>
+		</div>
+		<div class="navbar-collapse collapse" role="navigation" aria-expanded="false">
+			<ul class="nav navbar-nav">
+				<li><a href="/cubemaster/html/runEnvironment.html">运行环境</a></li>
+				<li><a href="/cubemaster/html/toolDownload.html">工具</a></li>
+				<li><a href="/cubemaster/html/runAlgoTopo.html">组合</a></li>
+				<li><a href="/cubemaster/html/dataPresent.html">数据</a></li>
+				<li><a href="/cubemaster/html/algorithmList.html">算法</a></li>
+				<li><a href="/cubemaster/html/resultRun.html">结果</a></li>
+				<li><a href="/cubemaster/html/resultVisualTopo.html">可视化</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right hidden-sm">
+				<li><a href="javascript:void(0)" data-toggle="modal" id="loginLi">登录</a></li>
+				<!-- <li data-toggle="modal" id="loginLi">登录</li> -->
+				<li><a href="http://172.22.146.20/CubeApiStore/html/signUp.html" data-toggle="modal" id="registerLi">注册</a></li>
+				<li><a id="navUserName">用户名</a></li>
+				<li><a id="navBack">退出</a></li>
+	        </ul>
+		</div>
+	</div>
+</div>
+
+<!-- 登录模态框-->
+<div class="modal fade" id="modalLogin"> 
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div style="text-align:center">
+					<button type="button" class="close" data-dismiss="modal" id="hidden"><span aria-hidden="true">&times;</span></button>
+					<h4>欢迎登录Cube Master</h4>
+				</div>
+				<div class="col-sm-4 col-sm-offset-1" id="loginFail">
+					<span class="glyphicon glyphicon-remove"></span>登录失败
+				</div>
+			</div>
+			<div class="modal-body">
+				<form class="form-horizontal" method="post">
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="inputEmailLogin">邮箱</label>
+						<div class="col-sm-7 has-feedback">
+							<input type="text" class="form-control" id="inputEmailLogin" name="email" placeholder="email">
+							<span class="glyphicon glyphicon-envelope form-control-feedback" arir-hidden="true"></span>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="inputPasswordLogin">密码</label>
+						<div class="col-sm-7 has-feedback">
+							<input type="password" class="form-control" id="inputPasswordLogin" name="password" placeholder="password">
+							<span class="glyphicon glyphicon-lock form-control-feedback" arir-hidden="true"></span>
+						</div>
+					</div>
+					<button type="submit" class="btn btn-primary" id="login">登录</button>
+					<a id="orRegister">注册</a>
+					<button type="reset" class="btn btn-primary" id="logRes" style="margin-left:50px">重置</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<!-- 注册模态框 -->
+<div class="modal fade" id="modalRegister"> 
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header" style="text-align:center">
+				<button type="button" class="close" data-dismiss="modal" id="registerBtn"><span aria-hidden="true">&times;</span></button>
+				<h4>欢迎注册Cube Master</h4>
+			</div>
+			<div class="modal-body">
+				<form class="form-horizontal" action="/cubemaster/servlet/RegisterServlet" method="post">
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="inputNameRegister">姓名</label>
+						<div class="col-sm-7 has-feedback">
+							<input type="text" class="form-control" id="inputNameRegister" name="user_name" placeholder="name">
+							<span class="glyphicon glyphicon-user form-control-feedback" arir-hidden="true"></span>
+						</div>
+						<div class="col-sm-3 modal-exm" id="modalName">
+							<span class="glyphicon glyphicon-triangle-left modal-ico"></span>
+							<span>长度应在3-20</span>
+						</div>
+						<div class="clo-sm-3" id="nameOk">
+							<span class="glyphicon glyphicon-ok"></span>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="inputNameRegister">邮箱</label>
+						<div class="col-sm-7 has-feedback">
+							<input type="text" class="form-control" id="inputEmailRegister" name="email" placeholder="email">
+							<span class="glyphicon glyphicon-envelope form-control-feedback" arir-hidden="true"></span>
+						</div>
+						<div class="col-sm-3 modal-exm" id="modalEmail1">
+							<span class="glyphicon glyphicon-triangle-left modal-ico"></span>
+							<span>邮箱格式不正确</span>
+						</div>
+						<div class="col-sm-3 modal-exm" id="modalEmail2">
+							<span class="glyphicon glyphicon-triangle-left modal-ico"></span>
+							<span>邮箱已存在</span>
+						</div>
+						<div class="clo-sm-3" id="emailOk">
+							<span class="glyphicon glyphicon-ok"></span>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="inputPasswordRegister">密码</label>
+						<div class="col-sm-7 has-feedback">
+							<input type="password" class="form-control" id="inputPasswordRegister" name="password" placeholder="password">
+							<span class="glyphicon glyphicon-lock form-control-feedback" arir-hidden="true"></span>
+						</div>
+						<div class="col-sm-3 modal-exm" id="modalPassword">
+							<span class="glyphicon glyphicon-triangle-left modal-ico"></span>
+							<span>长度应在6-20</span>
+						</div>
+						<div class="clo-sm-3" id="passwordOk">
+							<span class="glyphicon glyphicon-ok"></span>
+						</div>
+					</div>
+					<button type="submit" class="btn btn-primary" id="register">注册</button>
+					<a id='orLogin'>登录</a>
+					<button type="reset" class="btn btn-primary" id="regRes" style="margin-left:50px">重置</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	var nameStr = false,
+		emailStr = false,
+		passwordStr = false;
+
+	/*姓名验证*/
+	$('#inputNameRegister').blur(function(){
+		var len = this.value.length;
+		if(len < 3 || len > 20){
+			$('#modalName').css('display','block');
+			nameStr = false;
+		} 
+		if(len === 0){
+			$('#modalName').css('display','none');
+			nameStr = false;
+		}
+		if(len >= 3 && len <= 20){
+			$('#nameOk').css('display','block');
+			nameStr = true;
+		}
+	}).focus(function(){
+		$('#modalName').css('display','none');
+		$('#nameOk').css('display','none');
+	});
+	/*密码验证*/
+	$('#inputPasswordRegister').blur(function(){
+		var len = this.value.length;
+		if(len < 6 || len > 30){
+			$('#modalPassword').css('display','block');
+			passwordStr = false;
+		} 
+		if(len === 0){
+			$('#modalPassword').css('display','none');
+			passwordStr = false;
+		}
+		if(len >= 6 && len <= 30){
+			$('#passwordOk').css('display','block');
+			passwordStr = true;
+		}
+	}).focus(function(){
+		$('#modalPassword').css('display','none');
+		$('#passwordOk').css('display','none');
+	});
+
+	/*邮箱验证*/
+	$('#inputEmailRegister').blur(function(){
+		var pattern = /^\w+@\w+(\.[a-z]+)+$/,
+			dataObj = {
+				"name":"email",
+				"value":this.value
+			};
+		if(pattern.test(this.value)){
+
+			/*邮箱信息发送后台*/
+			$.ajax({
+				type:'post',
+				data:dataObj,
+				url:'/cubemaster/servlet/RegisterServlet',
+				success:function(res){
+					var data = JSON.parse(res);
+					/*邮箱成功*/
+					if(data.status === '1'){
+						$('#emailOk').css('display','block');
+						emailStr = true;
+					}else{
+						/*失败*/
+						$('#modalEmail2').css('display','none');
+						emailStr = false;
+					}
+				}
+			});
+		}else if(this.value.length === 0){
+			$('#modalEmail2').css('display','none');
+			$('#modalEmail1').css('display','none');
+			$('#emailOk').css('display','none');
+			emailStr = false;
+		}else{
+			$('#modalEmail1').css('display','block');
+			emailStr = false;
+		}
+	}).focus(function(){
+		$('#modalEmail1').css('display','none');
+		$('#modalEmail2').css('display','none');
+		$('#emailOk').css('display','none');
+	});
+
+	/*注册按钮 判断能否提交*/
+	$('#register').click(function(){
+		if(nameStr && passwordStr && emailStr){
+			localStorage.setItem('userName',$('#inputNameRegister').val());
+			return true;
+		}
+		else return false;
+	});
+
+	$('#modalRegister').on('shown.bs.modal',function(){
+		$('#modalRegister').modal({
+			backdrop:false,
+			show:true
+		});
+	});
+	/*注册模块的重置*/
+	$('#regRes').on('click',function(){
+		$('#modalName').hide();
+		$('#modalPassword').hide();
+		$('#modalEmail1').hide();
+		$('#modalEmail2').hide();
+		$('#nameOk').hide();
+		$('#emailOk').hide();
+		$('#passwordOk').hide();
+	});
+
+	/*点击注册 模态框的登录*/
+	$('#orLogin').click(function(){
+		$('#modalRegister').modal('hide');
+		$('#modalLogin').modal({
+			show:true,
+			backdrop:false
+		})
+	});
+
+
+    var obj = {logout:'false'};
+    $.ajax({
+    	type:'post',
+    	url:'/cubemaster/servlet/LoginCheckServlet',
+    	data:obj,
+    	dataType:'json',
+    	success:function(res){
+    		isUser(res);
+    	}
+    });
+
+    function isUser(res){
+	    var storageAll = res.user_name;
+
+	    /*如果用户名存在*/
+	    if(storageAll){
+	        $('#loginLi').css('display','none');
+	        $('#registerLi').css('display','none');
+	        $('#navUserName').html(storageAll);
+	        $('#navUserName').css('display','block');
+	        /* 存储用户id */
+	        localStorage.setItem('userId',res.user_id);
+
+	        /*点击退出 用户名存储清除*/
+	        $('#navBack').css('display','block').click(function(){
+	        $.ajax({
+	        	type:'post',
+	        	url:'/cubemaster/servlet/LogoutServlet',
+	        	dataType:'json',
+	        	async:false
+	        });
+
+	        /*跳转到首页*/
+	        location.href = '/cubemaster/html/index.html';
+	    	});
+	    }
+	    if(!storageAll && location.href.indexOf('index') < 0){
+
+    		// /*登录模态框弹出*/
+    		// $('#modalLogin').modal({
+      		// backdrop:false,
+      		// show:true
+    		// });
+    		// $('#fixed-top').addClass('modal-backdrop').css('background','rgba(0,0,0,0.5)');
+    		// $('#hidden').css('display','none');
+    		// window.location.href = "http://localhost:8080/RubicSSO/SSOAuth?action=preLogin&setCookieURL=http://localhost:8080/cubemaster/setCookie&gotoURL=/cubemaster"
+    		
+    		$.ajax({
+			type:"GET",
+			url:"/cubemaster/servlet/LoginCheckServlet",
+			dataType:"json",
+			success:function(res){
+				console.log(res.redirect);
+				location.href = '/cubemaster/user/redirectLogin?redirect=' + res.redirect;
+			}
+		})
+		}
+	}
+
+	/*点击导航栏登录*/
+	$('#loginLi').click(function(){
+		$.ajax({
+			type:"GET",
+			url:"/cubemaster/servlet/LoginCheckServlet",
+			dataType:"json",
+			success:function(res){
+				console.log(res.redirect);
+				location.href = '/cubemaster/user/redirectLogin?redirect=' + res.redirect;
+			}
+		})
+	})
+
+	/*点击登录*/
+	$('#login').click(function(){
+		if($('#inputEmailLogin').val().length && $('#inputPasswordLogin').val().length){
+			/*保存用户数据*/
+			var dataObj = {
+				"email":$('#inputEmailLogin').val(),
+				"password":$('#inputPasswordLogin').val()
+			};
+
+			/*发送后台*/
+			$.ajax({
+				type:'post',
+				url:'/cubemaster/servlet/LoginServlet',
+				dataType:'json',
+				data:dataObj,
+				success:function(data){
+					/*登录失败*/
+					if(data.status === '0') {
+						$('#loginFail').css('display','block');
+						$('#inputPasswordLogin').val() === '';
+					}
+					if(data.status === '1'){
+						/*登录成功*/
+						$('#loginFail').css('display','none');
+
+						/*跳转到当前页面*/
+						location.href = location.href;
+					}
+				}
+			});
+			return false;
+		}else return false;
+	});
+
+	/*点击登录模块的重置*/
+	$('#logRes').on('click',function(){
+		$('#loginFail').hide();
+	});
+
+	/*点击 登录模态框的注册*/
+	$('#orRegister').click(function(){
+		$('#modalLogin').modal('hide');
+		$('#modalRegister').modal({
+			show:true,
+			backdrop:false
+		})
+		$('#registerBtn').css('display','none');
+	});
+
+</script>

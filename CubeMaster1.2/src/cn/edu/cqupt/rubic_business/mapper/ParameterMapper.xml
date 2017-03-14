@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="cn.edu.cqupt.rubic_business.dao.ParameterDao">
+	
+	<sql id="parameterItems">
+		parameter_id, parameter_name, parameter_type, parameter_value, parameter_sequence
+	</sql>
+	
+	<sql id="parameterValues">
+		#{parameter_id}, #{parameter_name}, #{parameter_type}, #{parameter_value}, #{parameter_sequence}
+	</sql>
+
+	<insert id="addParameterInMap" parameterType="map">
+		<selectKey resultType="int" keyProperty="parameter_id">
+			select LAST_INSERT_ID() as parameter_id
+		</selectKey>
+		insert into parameter_for_algorithm (<include refid="parameterItems"/>) values (<include refid="parameterValues"/>)
+	</insert>
+
+	<select id="findParameterByAid" parameterType="int" resultType="cn.edu.cqupt.rubic_business.Model.po.ParameterPo">
+	select *
+	from algorithm_parameter_relationship t1 left join parameter_for_algorithm t2 on (t1.parameter_id=t2.parameter_id)
+	where algorithm_id=#{algorithm_id}
+	</select>
+	
+	<insert id="addParameter" parameterType="cn.edu.cqupt.rubic_business.Model.po.ParameterPo">
+		insert into parameter_for_algorithm (parameter_id, parameter_name, parameter_type, parameter_value) 
+		values (#{parameter_id}, #{parameter_name}, #{parameter_type}, #{parameter_value})
+	</insert>
+	
+	<!-- 根据名字查询id -->
+	<select id="findIdByName" parameterType="String" resultType="int">
+		select max(parameter_id) from parameter_for_algorithm where parameter_name = #{parameter_name}
+	</select>
+	
+</mapper>

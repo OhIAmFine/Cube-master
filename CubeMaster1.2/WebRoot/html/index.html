@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <title>首页 - Cube Master</title>
+    <link rel="stylesheet" href="/cubemaster/css/normalize.min.css">
+    <link rel="stylesheet" href="/cubemaster/css/refs/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/cubemaster/css/global.css">
+    <link rel="stylesheet" href="/cubemaster/css/index.css">
+</head>
+<body>
+    <div id="fixed-top"></div>
+    <header>
+        <div id="profile" class="container profile-bg-color">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="profile-title-color">Cube Master</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+    <footer id="common-footer"></footer>
+
+    <script src="../js/config.js"></script>
+    <script src="/cubemaster/js/refs/jquery/jquery.min.js"></script>
+    <script src="/cubemaster/js/loadTpls.js"></script>
+    <script src="/cubemaster/js/refs/bootstrap/bootstrap.min.js"></script>
+    <script src="/cubemaster/js/refs/colorful/colorful.min.js"></script>
+    <script>
+		window.onload = function(){
+	        var profile = document.getElementById('profile')
+	        startLoop(profile,[[102,153,255],[153,51,0],[240,204,10]],20000);
+	    }
+    </script>
+</body>
+</html>

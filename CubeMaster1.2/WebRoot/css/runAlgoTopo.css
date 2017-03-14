@@ -1,0 +1,290 @@
+.leftContent{
+	min-height: 600px;
+	width: 15%;
+	background-color: #fff;
+	border: 6px solid #337ab7;
+	border-right:none ;
+	border-radius: 6px;
+	float: left;
+
+}
+.dataTitle{
+	width:100%;
+	height: 40px;
+	line-height: 40px;
+}
+.leftContent h2{
+	text-align: center;
+	color: gray;
+}
+.rightContent{
+	min-height: 600px;
+	width: 65%;
+	background-color: #fff;
+	border: 6px solid #337ab7;
+	border-radius: 6px;
+	float: left;
+	position: relative;
+
+}
+.submitbtn{
+	width: 80px;
+	height: 40px;
+	position: absolute;
+	top: 530px;
+	right: 80px;
+}
+.resultcontent{
+	min-height: 588px;
+	width: 0.1%;
+	background-color: #ffffff;
+	float: right;
+	position: relative;
+
+
+}
+
+#nonecontent{
+	min-height: 600px;
+	width: 2%;
+	background-color: #ffffff;
+	float: left;
+	position: relative;
+
+
+}
+#nonecontent p{
+	position: absolute;
+	top: 48%;
+	margin-left: 6px;
+}
+.mask{
+	position: absolute;
+	display: none;
+	background-color: black;
+	 /* older safari/Chrome browsers */  
+   	background:rgba(0,0,0,0.7);
+    z-index: 100;
+}
+.content-input{
+	width: 200px;
+	position: absolute;
+	z-index: 101;
+	background-color: white;
+}
+/*.runalgo{
+	position: relative;
+	float: left;
+	min-height: 600px;
+	width:10%;
+	background-color: lightskyblue;
+}*/
+.parameterPanel{
+	min-height: 600px;
+	width:18%;
+	background-color: #fff;
+	border: 6px solid #337ab7;
+	border-radius: 6px;
+	float: left;
+
+}
+.parameterPanel h2{
+	text-align: center;
+}
+.data{
+	height: 220px;
+	width: 100%;
+	border-bottom: 1px solid black;
+	overflow: auto;
+}
+.algorithm{
+	height: 238px;
+	width: 100%;
+	overflow: auto;
+}
+.window{
+	margin: 0 auto;
+	width: 124px;
+    height: 60px;
+    margin-bottom:10px;
+    border: solid 1px;
+    text-align: center;
+    background-color: #d4f4f4;
+    border-radius: 6px;
+    box-shadow: 5px 5px 5px #ccc;
+	cursor: pointer;
+	line-height: 40px;
+	z-index: 200;
+}
+.closeposition{
+	position: absolute;
+	right: 0;
+	top:0;
+	display: none;
+}
+.indow_top{
+	width: 124px;
+	height: 20px;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+	line-height: 20px;
+	border-bottom: 1px solid #000;
+	position: relative;
+}
+.indow_top p{
+	display: inline-block;
+}
+.algo_top p{
+	display: inline-block;
+}
+.contentp{
+	width: 90px;
+	height: 20px;
+	text-overflow:ellipsis;
+	overflow: hidden;
+	white-space:nowrap;
+	position: relative;
+}
+.contentp p{
+	position: relative;
+	left: 0;
+}
+
+#icondata{
+	font-size: 36px;
+}
+.algoTitle{
+	height: 40px;
+	width: 100%;
+	line-height: 40px;
+}
+.algoWindow{
+	width: 100px;
+	height: 70px;
+	margin: 0 auto;
+  	margin-bottom: 10px;
+    border: solid 1px;
+    text-align: center;
+    background-color: #d4f4f4;
+    line-height: 50px;
+    border-radius: 6px;
+    box-shadow: 5px 5px 5px #ccc;
+	cursor: pointer;
+	z-index: 200;
+}
+
+.algo_top{
+	width: 100px;
+	height: 20px;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+	line-height: 20px;
+	border-bottom: 1px solid #000;
+	position: relative;
+}
+.contentp2{
+	width: 80px;
+	height: 20px;
+	text-overflow:ellipsis;
+	overflow: hidden;
+	white-space:nowrap;
+	position: relative;
+}
+.contentp2 p{
+	position: relative;
+	left: 0;
+}
+.position{
+ 	position: absolute;
+
+}
+
+/*.btn-wrap{
+	position: absolute;
+  	margin-top: -10px;
+  	margin-left: -42px;
+  	top: 50%;
+  	left: 50%;
+	text-align: center;
+}*/
+.btn{
+	margin:0 15px 0 15px;
+}
+.form-inline .form-group.parameters{
+	display: none;
+	overflow: hidden;
+}
+
+.hoverwindow:hover{
+	-webkit-transition:0.3s;
+	-webkit-transform:scale(1.2);
+	-moz-transition:0.3s;
+	-moz-transform:scale(1.2);
+	-o-transition:0.3s;
+	-o-transform:scale(1.2);
+	transition:0.3s;
+	transform:scale(1.2);
+}
+.hoverlogo:hover{
+	-webkit-transition:0.3s;
+	-webkit-transform:scale(1.2);
+	-moz-transition:0.3s;
+	-moz-transform:scale(1.2);
+	-o-transition:0.3s;
+	-o-transform:scale(1.2);
+	transition:0.3s;
+	transform:scale(1.2);
+}
+.algostyle:hover{
+	box-shadow: 2px 2px 20px 2px #808080 ;
+}
+.animate1{
+	transition:0.3s;
+	transform:rotate(90deg);
+	-moz-transition:0.3s;
+	-moz-transform:rotate(90deg);
+	-o-transition:0.3s;
+	-o-transform:rotate(90deg);
+	-webkit-transition:0.3s;
+	-webkit-transform:rotate(90deg);
+}
+.animate2{
+	transition:0.3s;
+	transform:rotate(-90deg);
+	-moz-transition:0.3s;
+	-moz-transform:rotate(-90deg);
+	-o-transition:0.3s;
+	-o-transform:rotate(-90deg);
+	-webkit-transition:0.3s;
+	-webkit-transform:rotate(-90deg);
+}
+.jsplumb-endpoint{
+	z-index: 2000;
+}
+
+	::-webkit-scrollbar {
+		  width: 12px;
+	} /**/
+	::-webkit-scrollbar-track {
+		  background-color: #E0E0E0;
+	} /**/
+
+	::-webkit-scrollbar-thumb {
+		  background-color: #AAAAAA; 
+	} /**/
+
+	::-webkit-scrollbar-button {
+		  background-color: #808080;
+		  height:12px;
+	} /**/
+
+	::-webkit-scrollbar-corner {
+		  background-color: black;
+	} /* */
+
+/*算法数据表单样式修改*/	
+.parameterPanel .form-control{
+	padding-right:0;
+}
+	
+	

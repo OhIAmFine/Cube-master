@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="zh-cmn-Hans">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>上传算法 - Rubic</title> 
+        <link rel="stylesheet" href="../css/refs/bootstrap/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../css/mystyle.css">
+        <link rel="stylesheet" type="text/css" href="../css/upLoad.css">
+        <link rel="stylesheet" type="text/css" href="../css/global.css">
+    </head>
+    <body>
+        <div id="fixed-top"></div>
+        <header class="section-header">
+            <ol class="breadcrumb">
+                <li><a href="./algorithmList.html">算法模块</a></li>
+                <li class="active lead">上传算法</li>
+            </ol>
+        </header>
+        <div class="row">
+            <div class="container bg-info">
+
+                <div class="form-horizontal">
+                    <div id="single-data">
+                    	<div class="form-group sr-only">
+                            <label for="userId" class="col-sm-2 control-label">用户id：</label>
+                            <div class="col-sm-3">
+                                <input type="hidden" id="userId" class="form-control input-test" name="user_id">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="algorithm_name" class="col-sm-2 control-label">算法名字：</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control input-test" id="inputName" name="algorithm_name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="description" class="col-sm-2 control-label">简介：</label>
+                            <div class="col-sm-6">
+                                <textarea class="form-control input-test" id="introduction" name="description"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="associated_tasks" class="col-sm-2 control-label">类型：</label>
+                            <div class="col-sm-3" id="type">
+                                <select name="associated_tasks" class="form-control input-test">
+                                    <option value="分类算法">分类算法</option>
+                                    <option value="聚类算法">聚类算法</option>
+                                    <option value="回归算法">回归算法</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="key_word" class="col-sm-2 control-label">关键词：</label>
+                            <div class="col-sm-3" id="key">
+                                <input type="text" class="form-control input-test" id="inputKey" name="key_word" placeholder="多个关键词请用逗号或空格隔开">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="scope" class="col-sm-2 control-label">数据处理能力：</label>
+                            <div class="col-sm-3" id="key">
+                                <input type="text" class="form-control input-test"  name="scope" placeholder="算法能处理多少行多少维的数据">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="data_requirements" class="col-sm-2 control-label">数据要求：</label>
+                            <div class="col-sm-3" id="key">
+                                <input type="text" class="form-control input-test"  name="data_requirements" placeholder="如连续型数据,离散型数据等">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="platform" class="col-sm-2 control-label">算法平台：</label>
+                            <div class="col-sm-3" id="key">
+                                <select class="form-control input-test" name="platform">
+                                    <option value="hadoop">hadoop</option>
+                                    <option value="java">java</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group" >
+                            <label for="in_pattern" class="col-sm-2 control-label">输入格式：</label>
+                            <div class="col-sm-6">
+                                <textarea class="form-control inputList input-test" id="inPattern" name="in_pattern"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="out_pattern" class="col-sm-2 control-label">输出格式：</label>
+                            <div class="col-sm-6">
+                                <textarea  class="form-control inputList input-test" id="outPattern" name="out_pattern"></textarea>
+                            </div>
+                        </div>
+                        <!--<div class="form-group">
+                            <label for="name" class="col-sm-2 control-label">可用数据集：</label>
+                            <div class="col-sm-3">
+                                  <input type="text" class="form-control" id="inputUse">
+                            </div>
+                        </div>-->
+                        <div class="form-group">
+                            <label for="associated_tasks" class="col-sm-2 control-label">测试数据集：</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control input-test" id="inputTest" name="data_test">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-lable">是否有参数:</label>
+                            <div class="col-sm-3">
+                                <input type="radio" name="has_parameter" value="0">
+                                <label for="has_parameter">是</label>
+                                <input type="radio" name="has_parameter" value="1">
+                                <label for="has_parameter">否</label> 
+                            </div>
+                        </div>
+                        <div class="form-group" id="total-patameter">
+                            <div id="patameter-main">
+                                <div class="row">
+                                    <label for="parameter_name" class="col-sm-2 control-label">参数名称：</label>
+                                    <div class="col-sm-2 parameter">
+                                        <input type="text" class="form-control patameter-value" name="parameter_name">
+                                    </div>
+                                    <label for="parameter_type" class="col-sm-2 control-label">参数类型：</label>
+                                    <div class="col-sm-2 parameter">
+                                        <div class="input-group" id="select-parent">
+                                            <select id="seletion" class="form-control patameter-value" name="parameter_type">
+                                                <option value="int">int</option>
+                                                <option value="double">double</option>
+                                                <option value="char">char</option>
+                                                <option value="float">float</option>
+                                                <option value="short">short</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <label for="parameter_value" class="col-sm-2 control-label">默认参数：</label>
+                                    <div class="col-sm-2 parameter">
+                                        <input type="text" class="form-control patameter-value" id="inputTest" name="parameter_value">
+                                    </div>
+                                    <button type="button" class="btn btn-default" id="append">添加</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group" id="pakge">
+                            <label class="col-sm-2 control-lable" for="package_name">包名(包名.类名)</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control input-test inputTest" id="pakge-name" name="package_name">
+                            </div>
+                        </div>
+                    </div>
+                    <form class="form-group" id="fid" method="post" action="http://172.22.146.5/FileSystem/servlet/AlgorithmUploadServlet" target="load" enctype="multipart/form-data">
+                        <input type="hidden" name="upalgo">
+                        <label class="col-sm-2 control-lable" for="file">代码上传（jar包）</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" id="text" value="点击上传文件">
+                            <input type="file" class="form-control inputLists" id="file" name="file">
+                        </div>
+                    </form>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-lable">是否公开:</label>
+                        <div class="col-sm-3">
+                            <input type="radio" name="ispublic" value="0">
+                            <label for="ispublic">公开</label>
+                            <input type="radio" name="ispublic" value="1">
+                            <label for="ispublic">不公开</label> 
+                        </div>
+                    </div>
+                    <div class="form-group">
+                    		<div class="progress">
+							  <div class="progress-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em;width: 10%;">
+							    0%
+							  </div>
+							</div>	
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-1 col-sm-offset-5">
+                            <input type="button" class="btn btn-default" id="upload" value="上传">
+                        </div>
+                        <div class="col-sm-1">
+                            <button type="reset" class="btn btn-default">取消上传</button>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <footer id="common-footer"></footer>
+		<iframe name="load" style="display:none"></iframe>
+        <script src="../js/config.js"></script>
+        <script type="text/javascript" src="../js/refs/jquery/jquery.min.js"></script>
+        <script src="../js/loadTpls.js"></script>
+        <script type="text/javascript" src="../js/refs/bootstrap/bootstrap.min.js"></script>
+        <script type="text/javascript" src="../js/upLoadAlgorithm.js"></script>
+    </body>
+</html>

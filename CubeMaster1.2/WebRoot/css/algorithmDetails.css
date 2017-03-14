@@ -1,0 +1,30 @@
+
+h1,h2,h3{
+	margin:0;
+	padding: 0;
+}
+.row{
+	margin-top: 12px;
+}
+.breadcrumb{
+	background-color: white;
+	padding-top: 0;
+}
+.breadcrumb li{
+	font-size: 30px;
+}
+#content{
+	background: rgb(249,249,249);
+}
+.pattern{
+	width:9.8%;
+}
+.code-title{
+	margin-top:0;
+}
+.row .alert-info{
+	margin-bottom: 0;
+}
+.panel{
+	margin-top: 10px;
+}

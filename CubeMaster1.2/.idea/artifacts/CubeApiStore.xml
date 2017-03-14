@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="CubeApiStore">
+    <output-path>$PROJECT_DIR$/../CubeApiStore1.4/target/CubeApiStore</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes" />
+        <element id="directory" name="lib" />
+      </element>
+    </root>
+  </artifact>
+</component>

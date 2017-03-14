@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <title>可视化运算结果</title>
+    <link rel="stylesheet" type="text/css" href="../css/resultVisualTopo.css" />
+    <link rel="stylesheet" type="text/css" href="../css/iconfont/iconfont.css" />
+    <link rel="stylesheet" type="text/css" href="../css/refs/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/global.css">
+</head>
+<body>
+    <div id="fixed-top"></div>
+    <header>
+        <ol class="breadcrumb">
+            <li><a href="#">可视化</a></li>
+        </ol>
+            <span class="subtitle">
+                选择合适的可视化方式来展现数据
+            </span>
+    </header>
+    <div id="container-fluid">
+        <h2 class="title">选择规则</h2>
+        <h2 class="title">选择数据</h2>
+        <h2 class="title">选择可视化方式</h2>
+        <div class="contentTop">
+            <div class="selectrule selectInfo">
+                <div class="ruleCover"></div>
+                <div class="ruleWrap">
+                    <!--<div class="rule">
+                         <span class="rule-text">对比</span>
+                     </div>
+                     <div class="rule">
+                         <span class="rule-text">统计</span>
+                     </div>-->
+
+                </div>
+                <div class="ruleSelect">
+                    <div class="titleWrap">
+                        <span class="ruleSelectTitle">属性名</span>
+                        <button class="backToRule btn btn-info">返回</button>
+                    </div>
+                    <!--<div class="ruleSelectSingleWrap">
+	                        <div class="ruleSelectSingle">
+	                            <span class="ruleSelectSingleName">三维散点</span>
+	                            <i class="iconfont closediv">&#xe600;</i>
+	                            <ul class="paramBoxList">
+	                                <li class="paramBox">
+	                                    <div class="typeContent">
+                                            <p>数值</p>
+                                        </div>
+                                        <div class="paramTitle"><p>y轴</p></div>
+                                        <div class="paramContent"></div>
+	                               </li>
+	                                <li class="paramBox">
+	                                   <div class="paramTitle"><p>y轴</p></div>
+	                               </li>
+	                            </ul>
+	                        </div>
+                   		</div>
+
+	                   <div class="ruleSelectSingleWrap">
+	                        <div class="ruleSelectSingle">
+	                            <!--<span class="ruleSelectSingleName">四维散点</span>
+	                            <i class="iconfont closediv">&#xe600;</i>
+	                        </div>
+	                    </div>-->
+                </div>
+            </div>
+
+            <div class="selectdata selectInfo">
+                <div class="dataCover"></div>
+                <ul class="data-type">
+                    <li class="data-result"><a href="javascript:">结果数据</a></li>
+                    <li class="data-original"><a href="javascript:">原始数据</a></li>
+                </ul>
+                <div class="dataContent">
+                    <div class="select-result">
+                         <!--<div class="forul">-->
+                                <!--<div class="window menuewindow">-->
+                                    <!--<div class="indow_top">-->
+                                        <!--<div class="contentp">-->
+                                            <!--<p>数据2</p>-->
+                                        <!--</div>-->
+                                        <!--<i class="iconfont closediv">&#xe600;</i>-->
+                                    <!--</div>-->
+                                    <!--<i class="iconfont iconsize">&#xe602;</i>-->
+                                    <!--<div class="listcontent">-->
+                                    <!--</div>-->
+                                    <!--<ul class="windowlist">-->
+                                        <!--<li class="listchild">-->
+                                            <!--<div class="BubuleBox">-->
+                                                <!--<p>speal length</p>-->
+                                            <!--</div>-->
+                                        <!--</li>-->
+
+                                    <!--</ul>-->
+                                <!--</div>-->
+                         <!--</div>-->
+                    </div>
+                    <div class="select-original">
+                        <!--<div class="forul">-->
+                            <!--<div class="window menuewindow">-->
+                                <!--<div class="indow_top">-->
+                                <!--<div class="contentp">-->
+                                    <!--<p>数据1</p>-->
+                                <!--</div>-->
+                                <!--<i class="iconfont closediv">&#xe600;</i>-->
+                            <!--</div>-->
+                            <!--<i class="iconfont iconsize">&#xe602;</i>-->
+                            <!--<div class="listcontent">-->
+                            <!--</div>-->
+                            <!--<ul class="windowlist">-->
+                                <!--<li class="listchild">-->
+                                <!--<div class="BubuleBox">-->
+                                    <!--<p>speal length</p>-->
+                                <!--</div>-->
+                                <!--</li>-->
+
+                            <!--</ul>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="selecvisual selectInfo">
+                <div class="visualCover"></div>
+                <!--<div class="visualWay">
+                   <div class="visualContent">
+                       <div class="visualtop">
+                           <div class="contentp">
+                               <span>折线图</span>
+                           </div>
+                           <i class="iconfont closediv">&#xe600;</i>
+                       </div>
+                       <i class="iconfont iconsize">&#xe603;</i>
+                       <ul class="visuallist">
+                           <li class="visualchild"><span>标准折线图</span></li>
+                       </ul>
+                   </div>
+               </div>
+               <div class="visualWay">
+                   <div class="visualContent">
+                       <div class="visualtop">
+                           <div class="contentp">
+                               <span>散点图</span>
+                           </div>
+                           <i class="iconfont closediv">&#xe600;</i>
+                       </div>
+                       <i class="iconfont iconsize">&#xe605;</i>
+                       <ul class="visuallist">
+                           <li class="visualchild"><span>黑白散点图</span></li>
+                           <li class="visualchild"><span>五彩散点图</span></li>
+                           <li class="visualchild"><span>回归散点图</span></li>
+                       </ul>
+                   </div>
+               </div>
+
+               -->
+
+            </div>
+        </div>
+        <div id="content" class="drag-drop-demo">
+            <p>drop here!</p>
+            <div id="resultcontent" class="resultContent"></div>
+            <input type="button" value="运行" class="btn btn-primary submitbtn" id="run-btn"/>
+
+        </div>
+    </div>
+    <div class="row" id="graph-wrap"></div>
+    <div id="top-control">
+        <img src="../img/backtop.png" alt="top">
+    </div>
+<script src="../js/config.js"></script>
+<script type="text/javascript" src="../js/refs/jquery/jquery.min.js"></script>
+<script src="../js/loadTpls.js"></script>
+<script type="text/javascript" src="../js/refs/jQueryUi/jquery-ui.min.js"></script>
+<script type="text/javascript" src="../js/refs/jsPlumb/jquery.jsPlumb-1.4.0-all.js"></script>
+<script type="text/javascript" src="../js/resultVisualTopo.js"></script>
+<script src="../js/refs/echarts/echarts-all.js"></script>
+<script src="../js/refs/echarts/macarons.2.js"></script>
+</body>
+</html>

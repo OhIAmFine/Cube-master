@@ -1,0 +1,38 @@
+table{
+	text-align: center;
+}
+#table-run td{
+	vertical-align: middle;
+}
+#table-run thead td{
+	padding: 8px;
+}
+
+/* .process-prent{
+	text-align: right;
+	position: relative;
+} */
+.glyphicon{
+	/* position:absolute;
+	top:25%;
+	right:48%; */
+	display: block;
+}
+/* .algorithm-left{
+	position:absolute;
+	top:20%;
+	right:60%;
+}
+.dataset-right{
+	position:absolute;
+	top:20%;
+	left:60%;
+} */
+/* 向上滑动至顶部的图标 */
+#top-control{
+	position: fixed;
+	right: 36px;
+	bottom: 36px;
+	display: none;
+	cursor: pointer;
+}

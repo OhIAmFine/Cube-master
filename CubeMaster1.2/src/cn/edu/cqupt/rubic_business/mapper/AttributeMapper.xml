@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="cn.edu.cqupt.rubic_business.dao.AttributeDao">
+
+	<sql id="attributeItems">
+		attribute_id,attribute_name,attribute_type,attribute_range,attribute_missing,
+		attribute_label,attribute_character,attribute_sequence,attribute_database_type
+	</sql>
+
+	<select id="findAttributesByDid" parameterType="int"
+		resultType="cn.edu.cqupt.rubic_business.Model.po.AttributePo">
+		SELECT *
+		FROM dataset t1 LEFT JOIN
+		dataset_attribute_relationship t2 ON(t1.dataset_id=t2.dataset_id)
+		LEFT JOIN attribute t3 ON (t2.attribute_id=t3.attribute_id)
+		WHERE
+		t1.dataset_id=#{dataset_id}
+	</select>
+
+	<!-- 根据数据集名称 查询最新id -->
+	<select id="findIdByName" parameterType="String" resultType="int">
+		select max(attribute_id) from attribute where attribute_name =
+		#{attribute_name}
+	</select>
+
+	<!-- 添加attribute map形式 -->
+	<insert id="addAttributeMap" parameterType="map">
+		<selectKey resultType="int" keyProperty="attribute_id"
+			order="AFTER">
+			select LAST_INSERT_ID() as attribute_id
+		</selectKey>
+		insert into attribute
+		(attribute_name,attribute_type,attribute_range,attribute_missing,
+		attribute_label,attribute_character,attribute_sequence,attribute_database_type)
+		values ( #{attribute_name},
+		#{attribute_type}, #{attribute_range}, #{attribute_missing}, #{attribute_label},
+		#{attribute_character},
+		#{attribute_sequence},#{attribute_database_type})
+	</insert>
+
+	<!-- 添加attribute -->
+	<insert id="addAttribute" parameterType="cn.edu.cqupt.rubic_business.Model.po.AttributePo">
+		<selectKey resultType="int" keyProperty="attribute_id"
+			order="AFTER">
+			select LAST_INSERT_ID()
+		</selectKey>
+		insert into attribute(attribute_name, attribute_type, attribute_range,
+		attribute_missing,
+		attribute_label,attribute_character,attribute_sequence)
+		values
+		(#{attribute_name}, #{attribute_type}, #{attribute_range},
+		#{attribute_missing},
+		#{attribute_label},#{attribute_character},#{attribute_sequence})
+	</insert>
+
+	<!-- 根据id 查询attribute -->
+	<select id="findAttributeById" parameterType="int" resultType="java.util.HashMap">
+		select * from attribute where attribute_id = #{attribute_id}
+	</select>
+
+	<!-- 查询运行结果集中结果列属性的id -->
+	<select id="getResultAttributeId" resultType="int">
+		SELECT
+		MAX(attribute_id) FROM attribute
+	</select>
+
+	<!-- 根据id查询属性 -->
+	<select id="getAttributeById" parameterType="int"
+		resultType="cn.edu.cqupt.rubic_business.Model.po.AttributePo">
+		select * from attribute where attribute_id =
+		#{attribute_id}
+	</select>
+
+	<!-- 查找属性名 -->
+	<select id="getAttributeNameByDid" parameterType="int"
+		resultType="String">
+		select attribute_name from attribute where attribute_id =
+		#{attribute_id}
+	</select>
+
+	<select id="getAttributeNamesByDid" parameterType="int"
+		resultType="String">
+		SELECT t2.attribute_name
+		FROM dataset_attribute_relationship
+		t1 LEFT JOIN attribute t2 on (t1.attribute_id=t2.attribute_id)
+		WHERE dataset_id=#{attribute_id}
+	</select>
+
+
+</mapper>
